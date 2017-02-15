@@ -1,0 +1,12 @@
+Spice Simulation 1-1
+*** MODEL Descriptions ***
+.model nm NMOS level=2 VT0=0.7
+KP=80e-6 LAMBDA=0.01
+*** NETLIST Description ***
+M1 vdd ng 0 0 nm W=3u L=3u
+R1 in ng 50
+Vdd vdd 0 5
+Vin in 0 2.5
+*** SIMULATION Commands ***
+.op
+.end
