@@ -18,8 +18,8 @@ void yyerror(const char* s);
 
 %code requires
 {
-	void AddComponent(char *name, char *net1, char *net2 ,float num, char multiplier);
-	void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char multiplier, float delay);
+	void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier);
+	void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay);
 }
 
 %union
@@ -29,48 +29,33 @@ void yyerror(const char* s);
 }
 
 %token<num> NUMBER
-%token SINE K M N H F LEFT RIGHT HZ S
+%token SINE LEFT RIGHT
 %token NEWLINE
-%token<id> RESIS INDUC CAPAC VOSRC CUSRC NETID 
-%token serious
+%token<id> ID 
 
 %%
 
 line: 
 	| line NEWLINE {}
-	| line RESIS NETID NETID NUMBER K NEWLINE 	{AddComponent($2,$3,$4,$5,'K');}
-	| line RESIS NETID NETID NUMBER M NEWLINE 	{AddComponent($2,$3,$4,$5,'M');}
-	| line RESIS NETID NETID NUMBER N NEWLINE 	{AddComponent($2,$3,$4,$5,'N');}
-	| line RESIS NETID NETID NUMBER NEWLINE 	{AddComponent($2,$3,$4,$5,'U');}
-	| line CAPAC NETID NETID NUMBER K F NEWLINE {AddComponent($2,$3,$4,$5,'K');}
-	| line CAPAC NETID NETID NUMBER M F NEWLINE {AddComponent($2,$3,$4,$5,'M');}
-	| line CAPAC NETID NETID NUMBER N F NEWLINE {AddComponent($2,$3,$4,$5,'N');}
-	| line CAPAC NETID NETID NUMBER F NEWLINE 	{AddComponent($2,$3,$4,$5,'U');}
-	| line INDUC NETID NETID NUMBER K H NEWLINE {AddComponent($2,$3,$4,$5,'K');}
-	| line INDUC NETID NETID NUMBER M H NEWLINE {AddComponent($2,$3,$4,$5,'M');}
-	| line INDUC NETID NETID NUMBER N H NEWLINE {AddComponent($2,$3,$4,$5,'N');}
-	| line INDUC NETID NETID NUMBER H NEWLINE 	{AddComponent($2,$3,$4,$5,'U');}
-	| line VOSRC NETID NETID SINE LEFT NUMBER NUMBER NUMBER K HZ NUMBER S RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,'K',$12);}
-	| line VOSRC NETID NETID SINE LEFT NUMBER NUMBER NUMBER M HZ NUMBER S RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,'M',$12);}
-	| line VOSRC NETID NETID SINE LEFT NUMBER NUMBER NUMBER N HZ NUMBER S RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,'N',$12);}	
-	| line VOSRC NETID NETID SINE LEFT NUMBER NUMBER NUMBER HZ NUMBER S RIGHT NEWLINE {AddSource($2,$3,$4,$7,$8,$9,'U',$11);}
-	| line CUSRC NETID NETID SINE LEFT NUMBER NUMBER NUMBER K HZ NUMBER S RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,'K',$12);}
-	| line CUSRC NETID NETID SINE LEFT NUMBER NUMBER NUMBER M HZ NUMBER S RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,'M',$12);}	
-	| line CUSRC NETID NETID SINE LEFT NUMBER NUMBER NUMBER N HZ NUMBER S RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,'N',$12);}
-	| line CUSRC NETID NETID SINE LEFT NUMBER NUMBER NUMBER HZ NUMBER S RIGHT NEWLINE {AddSource($2,$3,$4,$7,$8,$9,'U',$11);}
+	| line ID ID ID NUMBER ID NEWLINE 		{AddComponent($2,$3,$4,$5,$6);}
+	| line ID ID ID SINE LEFT NUMBER NUMBER NUMBER ID NUMBER ID RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,$10,$11);}
+	| line ID ID ID SINE LEFT NUMBER NUMBER NUMBER ID NUMBER ID NUMBER RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,$10,$11);}
+
 ;
 %%
 
-void AddComponent(char *name, char *net1, char *net2 ,float num, char multiplier)
+void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier)
 {
-	
+	/*Multiplier consists of units and power*/
+
+	printf("%s-%s-%s\n",name,net1,net2);
 }
 
-void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char multiplier, float delay)
+void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay)
 {
-	
+	/*Multiplier consists of units and power*/
+	printf("%s-%s-%s\n",name,net1,net2);
 }
-
 
 int main(int argc ,char *argv[]) 
 {
