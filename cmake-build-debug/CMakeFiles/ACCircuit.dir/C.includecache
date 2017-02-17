@@ -9,4 +9,8 @@
 H:/stdy/IIT Sem 4/COP290/ACCircuit/main.c
 stdio.h
 -
+malloc.h
+-
+string.h
+-
 
