@@ -122,6 +122,33 @@ ACCircuit/fast:
 	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/build
 .PHONY : ACCircuit/fast
 
+lex.yy.obj: lex.yy.c.obj
+
+.PHONY : lex.yy.obj
+
+# target to build an object file
+lex.yy.c.obj:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/lex.yy.c.obj
+.PHONY : lex.yy.c.obj
+
+lex.yy.i: lex.yy.c.i
+
+.PHONY : lex.yy.i
+
+# target to preprocess a source file
+lex.yy.c.i:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/lex.yy.c.i
+.PHONY : lex.yy.c.i
+
+lex.yy.s: lex.yy.c.s
+
+.PHONY : lex.yy.s
+
+# target to generate assembly for a file
+lex.yy.c.s:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/lex.yy.c.s
+.PHONY : lex.yy.c.s
+
 main.obj: main.c.obj
 
 .PHONY : main.obj
@@ -149,6 +176,60 @@ main.c.s:
 	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/main.c.s
 .PHONY : main.c.s
 
+multigraph.obj: multigraph.c.obj
+
+.PHONY : multigraph.obj
+
+# target to build an object file
+multigraph.c.obj:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/multigraph.c.obj
+.PHONY : multigraph.c.obj
+
+multigraph.i: multigraph.c.i
+
+.PHONY : multigraph.i
+
+# target to preprocess a source file
+multigraph.c.i:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/multigraph.c.i
+.PHONY : multigraph.c.i
+
+multigraph.s: multigraph.c.s
+
+.PHONY : multigraph.s
+
+# target to generate assembly for a file
+multigraph.c.s:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/multigraph.c.s
+.PHONY : multigraph.c.s
+
+parser.tab.obj: parser.tab.c.obj
+
+.PHONY : parser.tab.obj
+
+# target to build an object file
+parser.tab.c.obj:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/parser.tab.c.obj
+.PHONY : parser.tab.c.obj
+
+parser.tab.i: parser.tab.c.i
+
+.PHONY : parser.tab.i
+
+# target to preprocess a source file
+parser.tab.c.i:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/parser.tab.c.i
+.PHONY : parser.tab.c.i
+
+parser.tab.s: parser.tab.c.s
+
+.PHONY : parser.tab.s
+
+# target to generate assembly for a file
+parser.tab.c.s:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/parser.tab.c.s
+.PHONY : parser.tab.c.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -158,9 +239,18 @@ help:
 	@echo ... ACCircuit
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... lex.yy.obj
+	@echo ... lex.yy.i
+	@echo ... lex.yy.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... multigraph.obj
+	@echo ... multigraph.i
+	@echo ... multigraph.s
+	@echo ... parser.tab.obj
+	@echo ... parser.tab.i
+	@echo ... parser.tab.s
 .PHONY : help
 
 

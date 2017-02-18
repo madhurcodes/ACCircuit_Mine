@@ -6,6 +6,28 @@
 
 #IncludeRegexTransform: 
 
+H:/stdy/IIT Sem 4/COP290/ACCircuit/lex.yy.c
+stdio.h
+-
+string.h
+-
+errno.h
+-
+stdlib.h
+-
+myheader.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
+inttypes.h
+-
+stdio.h
+-
+string.h
+-
+parser.tab.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.h
+unistd.h
+-
+
 H:/stdy/IIT Sem 4/COP290/ACCircuit/main.c
 stdio.h
 -
@@ -13,4 +35,50 @@ malloc.h
 -
 string.h
 -
+myheader.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
+
+H:/stdy/IIT Sem 4/COP290/ACCircuit/multigraph.c
+stdio.h
+-
+malloc.h
+-
+string.h
+-
+myheader.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
+
+H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
+stdio.h
+-
+
+H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.c
+myheader.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
+stdio.h
+-
+ctype.h
+-
+stdlib.h
+-
+math.h
+-
+string.h
+-
+stddef.h
+-
+libintl.h
+-
+alloca.h
+-
+malloc.h
+-
+stdlib.h
+-
+stdlib.h
+-
+stdio.h
+-
+
+H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.h
 

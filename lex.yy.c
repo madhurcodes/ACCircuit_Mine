@@ -38,7 +38,7 @@
 #ifndef __STDC_LIMIT_MACROS
 #define __STDC_LIMIT_MACROS 1
 #endif
-
+#include "myheader.h"
 #include <inttypes.h>
 typedef int8_t flex_int8_t;
 typedef uint8_t flex_uint8_t;
@@ -460,8 +460,7 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "scanner.l"
 #line 4 "scanner.l"
-#include <stdio.h>
-#include <string.h>
+
 #include "parser.tab.h"
 int temp=0;
 

@@ -56,9 +56,81 @@ include CMakeFiles/ACCircuit.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ACCircuit.dir/flags.make
 
+CMakeFiles/ACCircuit.dir/multigraph.c.obj: CMakeFiles/ACCircuit.dir/flags.make
+CMakeFiles/ACCircuit.dir/multigraph.c.obj: ../multigraph.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ACCircuit.dir/multigraph.c.obj"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\multigraph.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\multigraph.c"
+
+CMakeFiles/ACCircuit.dir/multigraph.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/multigraph.c.i"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\multigraph.c" > CMakeFiles\ACCircuit.dir\multigraph.c.i
+
+CMakeFiles/ACCircuit.dir/multigraph.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/multigraph.c.s"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\multigraph.c" -o CMakeFiles\ACCircuit.dir\multigraph.c.s
+
+CMakeFiles/ACCircuit.dir/multigraph.c.obj.requires:
+
+.PHONY : CMakeFiles/ACCircuit.dir/multigraph.c.obj.requires
+
+CMakeFiles/ACCircuit.dir/multigraph.c.obj.provides: CMakeFiles/ACCircuit.dir/multigraph.c.obj.requires
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/multigraph.c.obj.provides.build
+.PHONY : CMakeFiles/ACCircuit.dir/multigraph.c.obj.provides
+
+CMakeFiles/ACCircuit.dir/multigraph.c.obj.provides.build: CMakeFiles/ACCircuit.dir/multigraph.c.obj
+
+
+CMakeFiles/ACCircuit.dir/parser.tab.c.obj: CMakeFiles/ACCircuit.dir/flags.make
+CMakeFiles/ACCircuit.dir/parser.tab.c.obj: ../parser.tab.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ACCircuit.dir/parser.tab.c.obj"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\parser.tab.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\parser.tab.c"
+
+CMakeFiles/ACCircuit.dir/parser.tab.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/parser.tab.c.i"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\parser.tab.c" > CMakeFiles\ACCircuit.dir\parser.tab.c.i
+
+CMakeFiles/ACCircuit.dir/parser.tab.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/parser.tab.c.s"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\parser.tab.c" -o CMakeFiles\ACCircuit.dir\parser.tab.c.s
+
+CMakeFiles/ACCircuit.dir/parser.tab.c.obj.requires:
+
+.PHONY : CMakeFiles/ACCircuit.dir/parser.tab.c.obj.requires
+
+CMakeFiles/ACCircuit.dir/parser.tab.c.obj.provides: CMakeFiles/ACCircuit.dir/parser.tab.c.obj.requires
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/parser.tab.c.obj.provides.build
+.PHONY : CMakeFiles/ACCircuit.dir/parser.tab.c.obj.provides
+
+CMakeFiles/ACCircuit.dir/parser.tab.c.obj.provides.build: CMakeFiles/ACCircuit.dir/parser.tab.c.obj
+
+
+CMakeFiles/ACCircuit.dir/lex.yy.c.obj: CMakeFiles/ACCircuit.dir/flags.make
+CMakeFiles/ACCircuit.dir/lex.yy.c.obj: ../lex.yy.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ACCircuit.dir/lex.yy.c.obj"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\lex.yy.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\lex.yy.c"
+
+CMakeFiles/ACCircuit.dir/lex.yy.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/lex.yy.c.i"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\lex.yy.c" > CMakeFiles\ACCircuit.dir\lex.yy.c.i
+
+CMakeFiles/ACCircuit.dir/lex.yy.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/lex.yy.c.s"
+	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\lex.yy.c" -o CMakeFiles\ACCircuit.dir\lex.yy.c.s
+
+CMakeFiles/ACCircuit.dir/lex.yy.c.obj.requires:
+
+.PHONY : CMakeFiles/ACCircuit.dir/lex.yy.c.obj.requires
+
+CMakeFiles/ACCircuit.dir/lex.yy.c.obj.provides: CMakeFiles/ACCircuit.dir/lex.yy.c.obj.requires
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/lex.yy.c.obj.provides.build
+.PHONY : CMakeFiles/ACCircuit.dir/lex.yy.c.obj.provides
+
+CMakeFiles/ACCircuit.dir/lex.yy.c.obj.provides.build: CMakeFiles/ACCircuit.dir/lex.yy.c.obj
+
+
 CMakeFiles/ACCircuit.dir/main.c.obj: CMakeFiles/ACCircuit.dir/flags.make
 CMakeFiles/ACCircuit.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ACCircuit.dir/main.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ACCircuit.dir/main.c.obj"
 	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\main.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\main.c"
 
 CMakeFiles/ACCircuit.dir/main.c.i: cmake_force
@@ -82,17 +154,23 @@ CMakeFiles/ACCircuit.dir/main.c.obj.provides.build: CMakeFiles/ACCircuit.dir/mai
 
 # Object files for target ACCircuit
 ACCircuit_OBJECTS = \
+"CMakeFiles/ACCircuit.dir/multigraph.c.obj" \
+"CMakeFiles/ACCircuit.dir/parser.tab.c.obj" \
+"CMakeFiles/ACCircuit.dir/lex.yy.c.obj" \
 "CMakeFiles/ACCircuit.dir/main.c.obj"
 
 # External object files for target ACCircuit
 ACCircuit_EXTERNAL_OBJECTS =
 
+ACCircuit.exe: CMakeFiles/ACCircuit.dir/multigraph.c.obj
+ACCircuit.exe: CMakeFiles/ACCircuit.dir/parser.tab.c.obj
+ACCircuit.exe: CMakeFiles/ACCircuit.dir/lex.yy.c.obj
 ACCircuit.exe: CMakeFiles/ACCircuit.dir/main.c.obj
 ACCircuit.exe: CMakeFiles/ACCircuit.dir/build.make
 ACCircuit.exe: CMakeFiles/ACCircuit.dir/linklibs.rsp
 ACCircuit.exe: CMakeFiles/ACCircuit.dir/objects1.rsp
 ACCircuit.exe: CMakeFiles/ACCircuit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable ACCircuit.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable ACCircuit.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ACCircuit.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -100,6 +178,9 @@ CMakeFiles/ACCircuit.dir/build: ACCircuit.exe
 
 .PHONY : CMakeFiles/ACCircuit.dir/build
 
+CMakeFiles/ACCircuit.dir/requires: CMakeFiles/ACCircuit.dir/multigraph.c.obj.requires
+CMakeFiles/ACCircuit.dir/requires: CMakeFiles/ACCircuit.dir/parser.tab.c.obj.requires
+CMakeFiles/ACCircuit.dir/requires: CMakeFiles/ACCircuit.dir/lex.yy.c.obj.requires
 CMakeFiles/ACCircuit.dir/requires: CMakeFiles/ACCircuit.dir/main.c.obj.requires
 
 .PHONY : CMakeFiles/ACCircuit.dir/requires

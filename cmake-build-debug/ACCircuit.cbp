@@ -80,7 +80,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/lex.yy.c">
+			<Option target="ACCircuit"/>
+		</Unit>
 		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/main.c">
+			<Option target="ACCircuit"/>
+		</Unit>
+		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/multigraph.c">
+			<Option target="ACCircuit"/>
+		</Unit>
+		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h">
+			<Option target="ACCircuit"/>
+		</Unit>
+		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.c">
+			<Option target="ACCircuit"/>
+		</Unit>
+		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.h">
 			<Option target="ACCircuit"/>
 		</Unit>
 		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/CMakeLists.txt">

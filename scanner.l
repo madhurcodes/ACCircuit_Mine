@@ -1,9 +1,11 @@
 %option noyywrap
 
+
 %{
 #include <stdio.h>
 #include <string.h>
 #include "parser.tab.h"
+
 int temp=0;
 
 %}

@@ -1,5 +1,5 @@
 /* A Bison parser, made by GNU Bison 3.0.4.  */
-
+#include "myheader.h"
 /* Bison implementation for Yacc-like parsers in C
 
    Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
@@ -64,10 +64,7 @@
 /* Copy the first part of user declarations.  */
 #line 1 "parser.y" /* yacc.c:339  */
 
-#include <stdio.h>
-#include <ctype.h>
 #include <stdlib.h>
-#include <math.h>
 #include<string.h>
 
 extern int yylex();
@@ -1483,27 +1480,6 @@ yyreturn:
 }
 #line 45 "parser.y" /* yacc.c:1906  */
 
-
-void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier)
-{
-	/*Multiplier consists of units and power*/
-
-	printf("%s-%s-%s\n",name,net1,net2);
-}
-
-void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay)
-{
-	/*Multiplier consists of units and power*/
-	printf("%s-%s-%s\n",name,net1,net2);
-}
-
-int main(int argc ,char *argv[]) 
-{
-	yyin = fopen(argv[1],"r");
-	//yyout = fopen(argv[2],"w+");
-	yyparse();
-	return 0;
-}
 
 void yyerror(const char* s) 
 {

@@ -1,4 +1,7 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ACCircuit.dir/multigraph.c.obj"
+  "CMakeFiles/ACCircuit.dir/parser.tab.c.obj"
+  "CMakeFiles/ACCircuit.dir/lex.yy.c.obj"
   "CMakeFiles/ACCircuit.dir/main.c.obj"
   "ACCircuit.pdb"
   "ACCircuit.exe"

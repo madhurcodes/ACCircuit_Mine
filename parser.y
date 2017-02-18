@@ -18,8 +18,6 @@ void yyerror(const char* s);
 
 %code requires
 {
-	void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier);
-	void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay);
 }
 
 %union
