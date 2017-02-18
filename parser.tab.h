@@ -39,13 +39,6 @@
 #if YYDEBUG
 extern int yydebug;
 #endif
-/* "%code requires" blocks.  */
-#line 20 "parser.y" /* yacc.c:1909  */
-
-	void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier);
-	void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay);
-
-#line 49 "parser.tab.h" /* yacc.c:1909  */
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
@@ -66,12 +59,12 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 26 "parser.y" /* yacc.c:1909  */
+#line 25 "parser.y" /* yacc.c:1909  */
 
 	float num;
 	char* id;
 
-#line 75 "parser.tab.h" /* yacc.c:1909  */
+#line 68 "parser.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

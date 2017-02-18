@@ -8,7 +8,10 @@
 extern int yylex();
 extern int yyparse();
 extern FILE* yyin;
-extern FILE* yyout; 
+extern FILE* yyout;
+
+extern void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier);
+extern void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay);
 
 void yyerror(const char* s);
 %}
@@ -16,9 +19,7 @@ void yyerror(const char* s);
 %defines
 %error-verbose
 
-%code requires
-{
-}
+
 
 %union
 {
@@ -42,26 +43,7 @@ line:
 ;
 %%
 
-void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier)
-{
-	/*Multiplier consists of units and power*/
 
-	printf("%s-%s-%s\n",name,net1,net2);
-}
-
-void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay)
-{
-	/*Multiplier consists of units and power*/
-	printf("%s-%s-%s\n",name,net1,net2);
-}
-
-int main(int argc ,char *argv[]) 
-{
-	yyin = fopen(argv[1],"r");
-	//yyout = fopen(argv[2],"w+");
-	yyparse();
-	return 0;
-}
 
 void yyerror(const char* s) 
 {

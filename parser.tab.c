@@ -1,5 +1,5 @@
 /* A Bison parser, made by GNU Bison 3.0.4.  */
-#include "myheader.h"
+
 /* Bison implementation for Yacc-like parsers in C
 
    Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
@@ -64,17 +64,23 @@
 /* Copy the first part of user declarations.  */
 #line 1 "parser.y" /* yacc.c:339  */
 
+#include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
+#include <math.h>
 #include<string.h>
 
 extern int yylex();
 extern int yyparse();
 extern FILE* yyin;
-extern FILE* yyout; 
+extern FILE* yyout;
+
+extern void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier);
+extern void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay);
 
 void yyerror(const char* s);
 
-#line 81 "parser.tab.c" /* yacc.c:339  */
+#line 84 "parser.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -103,13 +109,6 @@ void yyerror(const char* s);
 #if YYDEBUG
 extern int yydebug;
 #endif
-/* "%code requires" blocks.  */
-#line 20 "parser.y" /* yacc.c:355  */
-
-	void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier);
-	void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitude, float frequency, char* multiplier, float delay);
-
-#line 116 "parser.tab.c" /* yacc.c:355  */
 
 /* Token type.  */
 #ifndef YYTOKENTYPE
@@ -130,12 +129,12 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 26 "parser.y" /* yacc.c:355  */
+#line 25 "parser.y" /* yacc.c:355  */
 
 	float num;
 	char* id;
 
-#line 142 "parser.tab.c" /* yacc.c:355  */
+#line 138 "parser.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -152,7 +151,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 159 "parser.tab.c" /* yacc.c:358  */
+#line 155 "parser.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -450,7 +449,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    38,    38,    39,    40,    41,    42
+       0,    37,    37,    38,    39,    40,    41
 };
 #endif
 
@@ -1226,31 +1225,31 @@ yyreduce:
   switch (yyn)
     {
         case 3:
-#line 39 "parser.y" /* yacc.c:1646  */
+#line 38 "parser.y" /* yacc.c:1646  */
     {}
-#line 1235 "parser.tab.c" /* yacc.c:1646  */
+#line 1231 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 40 "parser.y" /* yacc.c:1646  */
+#line 39 "parser.y" /* yacc.c:1646  */
     {AddComponent((yyvsp[-5].id),(yyvsp[-4].id),(yyvsp[-3].id),(yyvsp[-2].num),(yyvsp[-1].id));}
-#line 1241 "parser.tab.c" /* yacc.c:1646  */
+#line 1237 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 41 "parser.y" /* yacc.c:1646  */
+#line 40 "parser.y" /* yacc.c:1646  */
     {AddSource((yyvsp[-12].id),(yyvsp[-11].id),(yyvsp[-10].id),(yyvsp[-7].num),(yyvsp[-6].num),(yyvsp[-5].num),(yyvsp[-4].id),(yyvsp[-3].num));}
-#line 1247 "parser.tab.c" /* yacc.c:1646  */
+#line 1243 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 42 "parser.y" /* yacc.c:1646  */
+#line 41 "parser.y" /* yacc.c:1646  */
     {AddSource((yyvsp[-13].id),(yyvsp[-12].id),(yyvsp[-11].id),(yyvsp[-8].num),(yyvsp[-7].num),(yyvsp[-6].num),(yyvsp[-5].id),(yyvsp[-4].num));}
-#line 1253 "parser.tab.c" /* yacc.c:1646  */
+#line 1249 "parser.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1257 "parser.tab.c" /* yacc.c:1646  */
+#line 1253 "parser.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1478,7 +1477,9 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 45 "parser.y" /* yacc.c:1906  */
+#line 44 "parser.y" /* yacc.c:1906  */
+
+
 
 
 void yyerror(const char* s) 
