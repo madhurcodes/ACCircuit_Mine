@@ -7,14 +7,55 @@
 
 // Definitions END
 // List
+
+int indexInAdjList(adjList *a, char **name){
+    int temp = 0;
+    if(a == NULL){
+        return NULL;
+    }
+    else{
+        adjListNode *curr = a->head;
+        while(curr != NULL) {
+            if (strcmp(*(curr->myVetice->netName), *name) == 0) {
+                return temp;
+            }
+            else{
+                curr = curr->next;
+                temp++;
+            }
+        }
+        return  NULL;
+    }
+}
+
+int indexInEdgeList(edgeList *a, char *name){
+    int temp = 0;
+
+    if(a == NULL){
+        return NULL;
+    }
+    else{
+        edgeListNode *curr = a->head;
+        while(curr != NULL) {
+            if (strcmp((curr->myEdge->info->name), name) == 0) {
+                return temp;
+            }
+            else{
+                curr = curr->next;
+                temp++;
+
+            }
+        }
+        return  NULL;
+    }
+}
+
 void printEdge(edge *a){
     printf(" %s (", a->info->name);
     printf(" %c ", a->info->type);
     printf(" of %.16f between ", a->info->val);
     printf(" %s and", *a->v1->netName);
     printf(" %s ) ", *a->v2->netName);
-
-
 }
 void adjListInsert(adjList *a, vertice *b){
     // Inserts at Head
@@ -47,7 +88,44 @@ vertice *findInAdjList(adjList *a, char *name){
         return  NULL;
     }
 }
-
+vertice *getInAdjList(adjList *a, int ss){
+    int temp = 0;
+    if(a == NULL){
+        return NULL;
+    }
+    else{
+        adjListNode *curr = a->head;
+        while(curr != NULL) {
+            if (ss == temp) {
+                return curr->myVetice;
+            }
+            else{
+                curr = curr->next;
+                temp++;
+            }
+        }
+        return  NULL;
+    }
+}
+edge *getInEdgeList(edgeList *a, int ss){
+    int temp = 0;
+    if(a == NULL){
+        return NULL;
+    }
+    else{
+        edgeListNode *curr = a->head;
+        while(curr != NULL) {
+            if (ss == temp) {
+                return curr->myEdge;
+            }
+            else{
+                curr = curr->next;
+                temp++;
+            }
+        }
+        return  NULL;
+    }
+}
 void printAdjList(adjList *a){
     printf("\nAdjList has - ");
     adjListNode *t;
@@ -111,13 +189,14 @@ void printEdgeList(edgeList *a){
     }
 }
 
-edge *newEdge(vertice *i1, vertice *i2, float n, char *namee , char typ){
+edge *newEdge(vertice *i1, vertice *i2, float n, char *namee , char typ, char* stuff){
     edge *a = (edge *) calloc(1, sizeof(edge));
     a->info = (edgeInfo *) calloc(1, sizeof(edgeInfo));
     a->v1  = i1;
     a->v2 = i2;
     a->info->type = typ;
     a->info->val = n;
+    a->info->stringed = stuff;
     a->info->name = (char *) calloc(strlen(namee),sizeof('a'));
     strcpy(a->info->name, namee);
     return  a;
@@ -139,9 +218,4 @@ vertice *newVertice(char *b){
     a->myEdgeList = (edgeList *) calloc(1,sizeof(edgeList));
     *(a->netName) = b;
     return  a;
-}
-void *addEdge(graph *a, edge *b){
-//    edgeListInsert(a->myEdgeList,b);
-//    edgeListInsert(b->v1->myEdgeList, b);
-//    edgeListInsert(b->v2->myEdgeList, b);
 }

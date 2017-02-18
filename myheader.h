@@ -14,6 +14,8 @@ typedef struct {
     int isSource;
     float offSet;
     float amplitude;
+    float delay;
+    char *stringed;
 } edgeInfo;
 typedef struct edgeList edgeList;
 typedef struct vertice {
@@ -67,7 +69,11 @@ void printAdjList ( adjList *a);
 void edgeListInsert ( edgeList *a, edge *b);
 edge *findInEdgeList (edgeList *a, char *name);
 void printEdgeList (edgeList *a);
-edge *newEdge (vertice *i1, vertice *i2, float n, char *namee , char typ);
+edge *newEdge (vertice *i1, vertice *i2, float n, char *namee , char typ, char *stuff);
 graph *newGraph () ;
 vertice *newVertice (char *b);
 void *addEdge (graph *a, edge *b);
+vertice *getInAdjList(adjList *a, int ss);
+edge *getInEdgeList(edgeList *a, int ss);
+int indexInAdjList(adjList *a, char **name);
+int indexInEdgeList(edgeList *a, char *name);
