@@ -7,15 +7,13 @@
 #endif //ACCIRCUIT_MYHEADER_H
 #include <stdio.h>
 
- int yylex();
- int yyparse();
- FILE* yyin;
- FILE* yyout;
-
 typedef struct {
     char *name;
     float val;
     char type;
+    int isSource;
+    float offSet;
+    float amplitude;
 } edgeInfo;
 typedef struct edgeList edgeList;
 typedef struct vertice {
@@ -39,7 +37,7 @@ typedef struct edgeListNode {
 typedef struct edgeList {
 
     edgeListNode *head;
-
+    int size;
 } edgeList;
 
 typedef struct adjListNode {
@@ -52,6 +50,7 @@ typedef struct adjListNode {
 
 
 typedef struct adjList {
+    int size;
     adjListNode *head;
 } adjList;
 

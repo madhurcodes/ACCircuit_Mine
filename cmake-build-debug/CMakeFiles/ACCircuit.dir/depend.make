@@ -11,6 +11,5 @@ CMakeFiles/ACCircuit.dir/main.c.obj: ../myheader.h
 CMakeFiles/ACCircuit.dir/multigraph.c.obj: ../multigraph.c
 CMakeFiles/ACCircuit.dir/multigraph.c.obj: ../myheader.h
 
-CMakeFiles/ACCircuit.dir/parser.tab.c.obj: ../myheader.h
 CMakeFiles/ACCircuit.dir/parser.tab.c.obj: ../parser.tab.c
 

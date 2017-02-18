@@ -6,9 +6,19 @@
 
 
 // Definitions END
-// List methods
+// List
+void printEdge(edge *a){
+    printf(" %s (", a->info->name);
+    printf(" %c ", a->info->type);
+    printf(" of %.16f between ", a->info->val);
+    printf(" %s and", *a->v1->netName);
+    printf(" %s ) ", *a->v2->netName);
+
+
+}
 void adjListInsert(adjList *a, vertice *b){
     // Inserts at Head
+    a->size += 1;
     adjListNode *toInsert = (adjListNode *) calloc(1,sizeof(adjListNode));
     toInsert->myVetice = b;
     if(a->head == NULL){
@@ -39,7 +49,7 @@ vertice *findInAdjList(adjList *a, char *name){
 }
 
 void printAdjList(adjList *a){
-    printf("AdjList has - ");
+    printf("\nAdjList has - ");
     adjListNode *t;
     if(a->head==NULL){
         return;
@@ -57,6 +67,7 @@ void printAdjList(adjList *a){
 void edgeListInsert(edgeList *a, edge *b){
     // Inserts at Head
     edgeListNode *toInsert = (edgeListNode *) calloc(1,sizeof(edgeListNode));
+    a->size += 1;
     toInsert->myEdge = b;
     if(a->head == NULL){
         a->head = toInsert;
@@ -93,7 +104,8 @@ void printEdgeList(edgeList *a){
     else{
         t = a->head;
         while(t!=NULL) {
-            printf("%s ", (t->myEdge->info->name));
+         //   printf("%s ", (t->myEdge->info->name));
+            printEdge(t->myEdge);
             t = t->next;
         }
     }
@@ -115,7 +127,9 @@ graph *newGraph() {
 
     graph *n = (graph *) malloc(sizeof(graph));
     n->myAdjList = (adjList *) calloc(1,sizeof(adjList));
+    n->myAdjList->size =0;
     n->myEdgeList = (edgeList *) calloc(1,sizeof(edgeList));
+    n->myEdgeList->size = 0;
     return n;
 }
 
@@ -127,7 +141,7 @@ vertice *newVertice(char *b){
     return  a;
 }
 void *addEdge(graph *a, edge *b){
-    edgeListInsert(a->myEdgeList,b);
-    edgeListInsert(b->v1->myEdgeList, b);
-    edgeListInsert(b->v2->myEdgeList, b);
+//    edgeListInsert(a->myEdgeList,b);
+//    edgeListInsert(b->v1->myEdgeList, b);
+//    edgeListInsert(b->v2->myEdgeList, b);
 }

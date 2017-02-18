@@ -1,11 +1,13 @@
- R1 Net3 Net9 10K 
- C1 Net2 Net3 100F 
- L1 Net1 Net2 10H 
+ R1 Net3 Net9 10K
+ C33 Net3 Net9 10KF
+ R1 Net3 Net9 10
+ C1 Net2 Net3 100MEGF
+ L1 Net1 Net2 10UH
 V1 Net1 0 SINE ( 0 1 10hz 0.0S )
  L2 Net9 Net4 10H 
  C2 Net4 Net5 100F 
  R2 Net5 Net8 10K 
- L3 Net8 Net6 10H 
- C3 Net6 Net7 100F 
+ L3 Net8 Net6 10NH
+ C3 Net6 Net7 1FF
  R3 Net7 0 10K
 
