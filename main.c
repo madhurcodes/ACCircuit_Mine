@@ -49,9 +49,7 @@ char voltageSource[] = "<ellipse cx=\"50\" cy=\"25\" rx=\"25\" ry=\"25\"\n"
         "\n"
         "<path \n"
         "     d=\"M 30,25 C 30,25 30,10 40,10 C 50,10 50,25 50,25 C 50,25 50,40 60,40 C 70,40 70,25 70,25 L 70,25\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/>\t";
-char ground[] = "\t<line x1=\"0\" y1=\"0\" x2=\"100\" y2=\"0\" \n"
-        "\tstroke-width=\"2\" stroke=\"black\" />\n"
-        "\t<line x1=\"50\" y1=\"0\" x2=\"50\" y2=\"20\" \n"
+char ground[] = "\t<line x1=\"50\" y1=\"0\" x2=\"50\" y2=\"20\" \n"
         "\tstroke-width=\"2\" stroke=\"black\" />\n"
         "\t<line x1=\"20\" y1=\"20\" x2=\"80\" y2=\"20\" \n"
         "\tstroke-width=\"2\" stroke=\"black\" />\n"
@@ -194,8 +192,8 @@ void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplie
         return;
     }
     char *stu = malloc(100);
-    sprintf(stu,"%.0f %s",num, multiplier);
-    printf("----syu is-- %s \n",stu);
+    sprintf(stu,"%g %s",num, multiplier);
+ //   printf("----syu is-- %s \n",stu);
     edge *e = newEdge(a,b,nn,name,type,stu);
     edgeListInsert(circuit->myEdgeList,e);
     edgeListInsert(e->v1->myEdgeList, e);
@@ -256,7 +254,7 @@ void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitu
     }
     edge *e;
     char *stu = malloc(100);
-    sprintf(stu,"SINE (%.1f %.1f %.1f%s %.1fS 0) ",dcOffset,amplitude,frequency,multiplier, delay);
+    sprintf(stu,"SINE (%g %g %g%s %gS 0) ",dcOffset,amplitude,frequency,multiplier, delay);
     if(name[0]=='V'){
         e = newEdge(a,b,nn,name,'V',stu);
 
@@ -298,20 +296,33 @@ int main(int argc, char *argv[]) {
 //    printEdgeList(mg->myEdgeList);
 //    printf("\nE's  edgesd\n");
 //    printEdgeList(b->myEdgeList);
-    if(argc>1){
+    if(argc==3){
         yyin = fopen(argv[1], "r");
+        output = fopen(argv[2],"w");
+    }
+    else if(argc==2){
+        yyin = fopen(argv[1], "r");
+        output = fopen("oout.svg","w");
     }
     else {
         yyin = fopen("in.txt", "r");
+        output = fopen("oout.svg","w");
+
     }
-    output = fopen("oout.svg","w");
     //yyout = fopen(argv[2],"w+");
     yyparse();
     fprintf(output,"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%d\" height=\"%d\"> \n ",200*circuit->myAdjList->size + 200, 200*circuit->myEdgeList->size + 200);
     int i;
     int noedges = circuit->myEdgeList->size;
     for(i=0; i<circuit->myAdjList->size; i++){
+        if(strcmp(*getInAdjList(circuit->myAdjList,i)->netName,"0")==0){
+            fprintf(output, "\t<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke-width=\"2\" stroke=\"black\" />\n ", 50 + i*200 , 25  ,150 + i*200  , 25);
+            fprintf(output,"<ellipse cx=\"%d\" cy=\"%d\" rx=\"5\" ry=\"5\" stroke=\"black\" stroke-width=\"2\" fill=\"black\" /> ",150 + i*200,25);
 
+            fprintf(output,"<g transform=\"translate(%d,%d)\">\n",100 + i*200,25);
+            fprintf(output,ground);
+            fprintf(output,"</g>");
+        }
         fprintf(output, "\t<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke-width=\"2\" stroke=\"black\" />\n ", 50 + i*200 , 25  ,50 + i*200  , (noedges)*200 + 100);
         fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>",55 + i*200,50,*getInAdjList(circuit->myAdjList,i)->netName);
         fprintf(output,"<ellipse cx=\"%d\" cy=\"%d\" rx=\"5\" ry=\"5\" stroke=\"black\" stroke-width=\"2\" fill=\"black\" /> ",50 + i*200,25);
@@ -364,13 +375,9 @@ int main(int argc, char *argv[]) {
         fprintf(output,"<ellipse cx=\"%d\" cy=\"%d\" rx=\"5\" ry=\"5\" stroke=\"black\" stroke-width=\"2\" fill=\"black\" /> ",end*200 + 50 , 125+200*i);
 
         //fprintf(output,"text");
-        fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>", 60 ,125+200*i,myed->info->name);
-        fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>", 60 ,150+200*i,myed->info->stringed);
+        fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>", 60 ,117+200*i,myed->info->name);
+        fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>", 60 ,168+200*i,myed->info->stringed);
         //fprintf(output,"text");
-
-
-
-
 
     }
     printEdgeList(circuit->myEdgeList);
