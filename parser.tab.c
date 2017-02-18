@@ -1491,5 +1491,6 @@ yyreturn:
 void yyerror(const char* s) 
 {
 	printf("SynErr:%s\n",s);
+	yyparse();
 	//exit(1);
 }
