@@ -18,15 +18,15 @@ def genSource(nl):
     a= ""
     a += (random.choice(["I","V"])+genWord(random.choice(range(2,9)))+" ")
     a+=(random.choice(nl)+" " + random.choice(nl)+" ")
-    a+= ("SINE ( "+ str(random.choice(range(4,199)))+" "+str(random.choice(range(4,199)))+" "+ str(random.choice(range(4,199)))+random.choice(ll)+"HZ "+str(random.random())+"S "+str(random.random())+" )\n")
+    a+= ("SINE ( "+ str(random.choice(range(4,199)))+" "+str(random.choice(range(4,199)))+" "+ str(random.choice(range(4,199)))+random.choice(ll)+"HZ "+str(random.random())+"S "+str(random.choice(["","0"]))+" )\n")
     return a
 ml = []
 def addNets(k):
     for s in range(k):
         ml.append(genWord(random.choice(range(2,9))))
 def main():
-    addNets(100)
-    for r in range(4000):
+    addNets(20)
+    for r in range(10):
         dd.write(genComponent(ml))
         dd.write(genSource(ml))
 main()

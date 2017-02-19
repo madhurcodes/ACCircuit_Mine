@@ -390,6 +390,10 @@ int main(int argc, char *argv[])
 			start = end;
 			end = ttt;
 		}
+        /* Shows a message to user if a component is shorted (still draws it)  */
+        if(start==end){
+            printf("\n%s is shorted on Net %s\n",myed->info->name,*myed->v2->netName);
+        }
 		fprintf(output,"<g transform=\"translate(%f,%d)\">\n",((start+end)/2.0)*200,100+200*i);
 		if(myType == 'R')
 		{
