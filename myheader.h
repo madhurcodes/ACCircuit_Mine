@@ -1,3 +1,5 @@
+/*Header file to use functions externally*/
+
 //
 // Created by Madhur on 2/17/2017.
 //
@@ -7,7 +9,8 @@
 #endif //ACCIRCUIT_MYHEADER_H
 #include <stdio.h>
 
-typedef struct {
+typedef struct 
+{
     char *name;
     float val;
     char type;
@@ -17,52 +20,52 @@ typedef struct {
     float delay;
     char *stringed;
 } edgeInfo;
-typedef struct edgeList edgeList;
-typedef struct vertice {
 
+typedef struct edgeList edgeList;
+
+typedef struct vertice
+{
     char **netName;
     edgeList *myEdgeList;
 
 } vertice;
-typedef struct {
+typedef struct 
+{
     vertice *v1;
     vertice *v2;
     edgeInfo *info;
 } edge;
 
-typedef struct edgeListNode {
-
+typedef struct edgeListNode 
+{
     edge *myEdge;
     struct edgeListNode *next;
-
 } edgeListNode;
-typedef struct edgeList {
 
+typedef struct edgeList
+{
     edgeListNode *head;
     int size;
 } edgeList;
 
-typedef struct adjListNode {
-
+typedef struct adjListNode 
+{
     vertice *myVetice;
     struct adjListNode *next;
-
-
 } adjListNode;
 
-
-typedef struct adjList {
+typedef struct adjList 
+{
     int size;
     adjListNode *head;
 } adjList;
 
-
-typedef struct {
-
+typedef struct 
+{
     edgeList *myEdgeList;
     adjList *myAdjList;
-
 } graph;
+
 void adjListInsert (adjList *a, vertice *b);
 vertice *findInAdjList (adjList *a, char *name);
 void printAdjList ( adjList *a);
