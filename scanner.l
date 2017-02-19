@@ -10,7 +10,7 @@ int temp=0;
 %}
 
 letter    [A-Za-z]
-alphanum  [A-Za-z0-9\_\-\!]
+alphanum  [A-Za-z0-9\_]
 
 %%
 

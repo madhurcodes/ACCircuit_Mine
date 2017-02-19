@@ -36,7 +36,7 @@ line:
 	| line NEWLINE {}
 	| line ID ID ID NUMBER ID NEWLINE 		{AddComponent($2,$3,$4,$5,$6);}
 	| line ID ID ID NUMBER NEWLINE 		{AddComponent($2,$3,$4,$5,"R");}
-	| line ID ID ID SINE LEFT NUMBER NUMBER NUMBER ID NUMBER ID RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,$10,$11);}
+	| line ID ID ID SINE LEFT NUMBER NUMBER NUMBER ID NUMBER ID RIGHT NEWLINE	{printf("\nDamping factor not given at %s",$2);AddSource($2,$3,$4,$7,$8,$9,$10,$11);}
 	| line ID ID ID SINE LEFT NUMBER NUMBER NUMBER ID NUMBER ID NUMBER RIGHT NEWLINE	{AddSource($2,$3,$4,$7,$8,$9,$10,$11);}
 
 ;

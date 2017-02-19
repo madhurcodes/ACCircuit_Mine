@@ -129,7 +129,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 25 "parser.y" /* yacc.c:355  */
+#line 23 "parser.y" /* yacc.c:355  */
 
 	float num;
 	char* id;
@@ -449,7 +449,7 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    37,    37,    38,    39,    40,    41,    42
+       0,    35,    35,    36,    37,    38,    39,    40
 };
 #endif
 
@@ -1225,31 +1225,31 @@ yyreduce:
   switch (yyn)
     {
         case 3:
-#line 38 "parser.y" /* yacc.c:1646  */
+#line 36 "parser.y" /* yacc.c:1646  */
     {}
 #line 1231 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 39 "parser.y" /* yacc.c:1646  */
+#line 37 "parser.y" /* yacc.c:1646  */
     {AddComponent((yyvsp[-5].id),(yyvsp[-4].id),(yyvsp[-3].id),(yyvsp[-2].num),(yyvsp[-1].id));}
 #line 1237 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 40 "parser.y" /* yacc.c:1646  */
+#line 38 "parser.y" /* yacc.c:1646  */
     {AddComponent((yyvsp[-4].id),(yyvsp[-3].id),(yyvsp[-2].id),(yyvsp[-1].num),"R");}
 #line 1243 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 41 "parser.y" /* yacc.c:1646  */
-    {AddSource((yyvsp[-12].id),(yyvsp[-11].id),(yyvsp[-10].id),(yyvsp[-7].num),(yyvsp[-6].num),(yyvsp[-5].num),(yyvsp[-4].id),(yyvsp[-3].num));}
+#line 39 "parser.y" /* yacc.c:1646  */
+    {printf("\nDamping factor not given at %s",(yyvsp[-12].id));AddSource((yyvsp[-12].id),(yyvsp[-11].id),(yyvsp[-10].id),(yyvsp[-7].num),(yyvsp[-6].num),(yyvsp[-5].num),(yyvsp[-4].id),(yyvsp[-3].num));}
 #line 1249 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 42 "parser.y" /* yacc.c:1646  */
+#line 40 "parser.y" /* yacc.c:1646  */
     {AddSource((yyvsp[-13].id),(yyvsp[-12].id),(yyvsp[-11].id),(yyvsp[-8].num),(yyvsp[-7].num),(yyvsp[-6].num),(yyvsp[-5].id),(yyvsp[-4].num));}
 #line 1255 "parser.tab.c" /* yacc.c:1646  */
     break;
@@ -1483,14 +1483,13 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 45 "parser.y" /* yacc.c:1906  */
+#line 43 "parser.y" /* yacc.c:1906  */
 
 
-
+/*Writing syntax errors but continuing the program*/
 
 void yyerror(const char* s) 
 {
 	printf("SynErr:%s\n",s);
 	yyparse();
-	//exit(1);
 }

@@ -59,7 +59,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 25 "parser.y" /* yacc.c:1909  */
+#line 23 "parser.y" /* yacc.c:1909  */
 
 	float num;
 	char* id;
