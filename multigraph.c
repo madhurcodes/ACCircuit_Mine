@@ -1,19 +1,21 @@
-/*File that contains all function declarations of Graph*/
+/*File that contains all function definitions of Graph*/
 
 
 #include <stdio.h>
 #include <malloc.h>
 #include <string.h>
 #include "myheader.h"
+/* Note - All struct definitions and function prototypes are in myheader.h*/
+
 
 /*Function to get the index of an element in the vertex list */
-
 int indexInAdjList(adjList *a, char **name)
 {
+    /*A simple implementation with a counter and moving to next.*/
     int temp = 0;
     if(a == NULL)
     {
-        return NULL;
+        return -1;
     }
     else
     {
@@ -30,19 +32,17 @@ int indexInAdjList(adjList *a, char **name)
                 temp++;
             }
         }
-        return  NULL;
+        return  -1;
     }
 }
 
 /*Function to get the index of an element in the edge list */
-
-
 int indexInEdgeList(edgeList *a, char *name)
 {
     int temp = 0;
     if(a == NULL)
     {
-        return NULL;
+        return -1;
     }
     else
     {
@@ -60,12 +60,11 @@ int indexInEdgeList(edgeList *a, char *name)
 
             }
         }
-        return  NULL;
+        return  -1;
     }
 }
 
-/*print  values stored in an edge */
-
+/*print  values stored in an edge (ie a component) */
 void printEdge(edge *a)
 {
     printf(" %s (", a->info->name);
@@ -76,7 +75,6 @@ void printEdge(edge *a)
 }
 
 /*Insert new element at the head of the list*/
-
 void adjListInsert(adjList *a, vertice *b)
 {
     a->size += 1;
@@ -93,8 +91,7 @@ void adjListInsert(adjList *a, vertice *b)
     }
 }
 
-/*Search for a net name in nvertices list*/
-
+/*Search for a net name in vertices list*/
 vertice *findInAdjList(adjList *a, char *name)
 {
     if(a == NULL)
@@ -148,7 +145,6 @@ vertice *getInAdjList(adjList *a, int ss)
 }
 
 /*get the nth element of the edge list*/
-
 edge *getInEdgeList(edgeList *a, int ss)
 {
     int temp = 0;
@@ -175,8 +171,6 @@ edge *getInEdgeList(edgeList *a, int ss)
 }
 
 /*print  values stored in an vertex */
-
-
 void printAdjList(adjList *a){
     printf("\nAdjList has - ");
     adjListNode *t;
@@ -193,7 +187,6 @@ void printAdjList(adjList *a){
 }
 
 /*Function to insert a edge in edge list at the head*/
-
 void edgeListInsert(edgeList *a, edge *b)
 {
     edgeListNode *toInsert = (edgeListNode *) calloc(1,sizeof(edgeListNode));
@@ -210,8 +203,7 @@ void edgeListInsert(edgeList *a, edge *b)
     }
 }
 
-/**/
-
+/* To FInd elemts in the edge list.*/
 edge *findInEdgeList(edgeList *a, char *name)
 {
     if(a == NULL)
@@ -257,7 +249,6 @@ void printEdgeList(edgeList *a)
 }
 
 /*Function to create a new edge*/
-
 edge *newEdge(vertice *i1, vertice *i2, float n, char *namee , char typ, char* stuff)
 {
     edge *a = (edge *) calloc(1, sizeof(edge));
@@ -273,7 +264,6 @@ edge *newEdge(vertice *i1, vertice *i2, float n, char *namee , char typ, char* s
 }
 
 /*Function to initialise a new graph*/
-
 graph *newGraph() 
 {
     graph *n = (graph *) malloc(sizeof(graph));
@@ -285,7 +275,6 @@ graph *newGraph()
 }
 
 /*Function to create a new vertex*/
-
 vertice *newVertice(char *b)
 {
     vertice *a = (vertice *) calloc(1,sizeof(vertice));

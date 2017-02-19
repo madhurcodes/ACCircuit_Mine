@@ -362,14 +362,15 @@ int main(int argc, char *argv[])
 			fprintf(output,ground);
 			fprintf(output,"</g>");
         }
-        if(flag==0){
-            printf("\nNo ground net found\n");
-		}
+
 		fprintf(output, "\t<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke-width=\"2\" stroke=\"black\" />\n ", 50 + i*200 , 25  ,50 + i*200  , (noedges)*200 + 100);
 		fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>",55 + i*200,50,*getInAdjList(circuit->myAdjList,i)->netName);
 		fprintf(output,"<ellipse cx=\"%d\" cy=\"%d\" rx=\"5\" ry=\"5\" stroke=\"black\" stroke-width=\"2\" fill=\"black\" /> ",50 + i*200,25);
 		fprintf(output,"<ellipse cx=\"%d\" cy=\"%d\" rx=\"5\" ry=\"5\" stroke=\"black\" stroke-width=\"2\" fill=\"black\" /> ",50 + i*200 ,  (noedges)*200 + 100);
 	}
+    if(flag==0){
+        printf("\nNo ground net found\n");
+    }
 	char myType;
 	int start,end,ttt;
 	edge *myed;
@@ -382,6 +383,7 @@ int main(int argc, char *argv[])
 		myType = myed->info->type;
 		start = indexInAdjList(circuit->myAdjList,myed->v1->netName);
 		end = indexInAdjList(circuit->myAdjList,myed->v2->netName);
+        /* To make start the net that occurs earlier for proper drawing*/
 		if(start>= end)
 		{
 			ttt = start;
@@ -414,13 +416,15 @@ int main(int argc, char *argv[])
 		/*Draw connecting wires*/
 		fprintf(output, "\t<line x1=\"%d\" y1=\"%d\" x2=\"%f\" y2=\"%d\" stroke-width=\"2\" stroke=\"black\" />\n ", 50+start*200 ,125+200*i , ((start+end)/2.0)*200 , 125+200*i);
 		fprintf(output, "\t<line x1=\"%f\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke-width=\"2\" stroke=\"black\" />\n ",100+((start+end)/2.0)*200 , 125+200*i , end*200 + 50 , 125+200*i);
+		/* Draw Points on connecting wires' beginning and end */
 		fprintf(output,"<ellipse cx=\"%d\" cy=\"%d\" rx=\"5\" ry=\"5\" stroke=\"black\" stroke-width=\"2\" fill=\"black\" /> ",50+start*200,125+200*i);
 		fprintf(output,"<ellipse cx=\"%d\" cy=\"%d\" rx=\"5\" ry=\"5\" stroke=\"black\" stroke-width=\"2\" fill=\"black\" /> ",end*200 + 50 , 125+200*i);
-		fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>", 60 ,117+200*i,myed->info->name);
+		/* Write The name of the component and it's magnitude*/
+        fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>", 60 ,117+200*i,myed->info->name);
 		fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>", 60 ,168+200*i,myed->info->stringed);
 	}
-	printEdgeList(circuit->myEdgeList);
-	printAdjList(circuit->myAdjList);
+	//printEdgeList(circuit->myEdgeList);
+	//printAdjList(circuit->myAdjList);
 	fprintf(output,"</svg>");
 	fclose(output);
 	return 0;
