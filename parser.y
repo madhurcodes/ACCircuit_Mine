@@ -19,8 +19,6 @@ void yyerror(const char* s);
 %defines
 %error-verbose
 
-
-
 %union
 {
 	float num;
@@ -44,11 +42,10 @@ line:
 ;
 %%
 
-
+/*Writing syntax errors but continuing the program*/
 
 void yyerror(const char* s) 
 {
 	printf("SynErr:%s\n",s);
 	yyparse();
-	//exit(1);
 }
