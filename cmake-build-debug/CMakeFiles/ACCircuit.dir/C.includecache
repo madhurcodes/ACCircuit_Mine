@@ -15,9 +15,11 @@ errno.h
 -
 stdlib.h
 -
-myheader.h
-H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
 inttypes.h
+-
+stdio.h
+-
+string.h
 -
 parser.tab.h
 H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.h

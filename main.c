@@ -312,16 +312,19 @@ int main(int argc, char *argv[]) {
     //yyout = fopen(argv[2],"w+");
     yyparse();
     fprintf(output,"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%d\" height=\"%d\"> \n ",200*circuit->myAdjList->size + 200, 200*circuit->myEdgeList->size + 200);
-    int i;
+    int i,flag=0;
     int noedges = circuit->myEdgeList->size;
     for(i=0; i<circuit->myAdjList->size; i++){
         if(strcmp(*getInAdjList(circuit->myAdjList,i)->netName,"0")==0){
             fprintf(output, "\t<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke-width=\"2\" stroke=\"black\" />\n ", 50 + i*200 , 25  ,150 + i*200  , 25);
             fprintf(output,"<ellipse cx=\"%d\" cy=\"%d\" rx=\"5\" ry=\"5\" stroke=\"black\" stroke-width=\"2\" fill=\"black\" /> ",150 + i*200,25);
-
+            flag = 1;
             fprintf(output,"<g transform=\"translate(%d,%d)\">\n",100 + i*200,25);
             fprintf(output,ground);
             fprintf(output,"</g>");
+        }
+        if(flag==0){
+            printf("\nNo ground net found\n");
         }
         fprintf(output, "\t<line x1=\"%d\" y1=\"%d\" x2=\"%d\" y2=\"%d\" stroke-width=\"2\" stroke=\"black\" />\n ", 50 + i*200 , 25  ,50 + i*200  , (noedges)*200 + 100);
         fprintf(output,"<g fill=\"#000000\" font-family=\"Arial,Helvetica\" font-weight=\"bold\" text-anchor=\"start\" font-size=\"22px\">\n<text x=\"%d\" y=\"%d\">%s</text></g>",55 + i*200,50,*getInAdjList(circuit->myAdjList,i)->netName);
@@ -382,7 +385,7 @@ int main(int argc, char *argv[]) {
     }
     printEdgeList(circuit->myEdgeList);
     printAdjList(circuit->myAdjList);
-    // TODO ground
+    // TODO COMMENTS
     fprintf(output,"</svg>");
     fclose(output);
     return 0;
