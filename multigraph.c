@@ -288,4 +288,9 @@ vertice *newVertice(char *b)
     a->v_imag = 0;
     return  a;
 }
-
+int neighboursof(vertice* v){
+    return 0;
+}
+edge *edgesfrom(vertice* v, int a){
+    return (edge *) 0;
+}

@@ -10,7 +10,7 @@
 #include <stdio.h>
 
 int invert();
-typedef struct 
+typedef struct
 {
     char *name;
     float val;
@@ -27,8 +27,8 @@ typedef struct edgeList edgeList;
 typedef struct vertice
 {
     char **netName;
-    float v_real=0;
-    float v_imag=0;
+    float v_real;
+    float v_imag;
     edgeList *myEdgeList;
 
 } vertice;
@@ -37,10 +37,10 @@ typedef struct
     vertice *v1;
     vertice *v2;
     edgeInfo *info;
-    float i_real=0;
-    float i_imag=0;
-    float z_real=0;
-    float z_imag=0;
+    float i_real;
+    float i_imag;
+    float z_real;
+    float z_imag;
 } edge;
 
 typedef struct edgeListNode
@@ -73,6 +73,8 @@ typedef struct
     adjList *myAdjList;
 } graph;
 
+
+
 void adjListInsert (adjList *a, vertice *b);
 vertice *findInAdjList (adjList *a, char *name);
 void printAdjList ( adjList *a);
@@ -87,3 +89,5 @@ vertice *getInAdjList(adjList *a, int ss);
 edge *getInEdgeList(edgeList *a, int ss);
 int indexInAdjList(adjList *a, char **name);
 int indexInEdgeList(edgeList *a, char *name);
+int neighboursof(vertice* v);
+edge *edgesfrom(vertice* v, int a);
