@@ -11,6 +11,7 @@ extern  int yyparse();
 FILE *output;
 graph *circuit;
 
+int rowno = 0;
 /*svg code for various symbols used*/
 
 char capacitor[] = "<line x1=\"0\" y1=\"25\" x2=\"40\" y2=\"25\" \n"
@@ -324,14 +325,16 @@ void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitu
 
 void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1])
 {
+	rowno=0;
 	edge *myEdge;
 	vertice *myVertex;
-	int i=0,a=0,b=0;
+	int i=0,a=0;
 	if(w>0)
 	{
 		for(i=0; i<circuit->myEdgeList->size; i++)
 		{
 			myEdge=getInEdgeList(circuit->myEdgeList,i);
+
 			if(myEdge->info->isSource == 0)
 			{
 				if(myEdge->info->type == 'R')
@@ -353,22 +356,56 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 				{
 					printf("error: wrong type");
 				}
-				//v1_real+-v2_real-i_real*z_real+i_imag*z_imag=0
+				//v1_real-v2_real-i_real*z_real+i_imag*z_imag=0
 				//v1_imag-v2_imag-i_imag_z_real-i_real*z_imag=0
 				//add myEdge->v1->v_real,v_imag; neg myEdge->v2->v_real,imag; myEdge->z_imag
 
-                matrix[a][b]=1;
-            }
+				a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName);
+				matrix[rowno][a]=1;
+				a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName);
+				matrix[rowno][a]=-1;
+				a= 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
+				matrix[rowno][a]=-1*myEdge->z_real;
+				a= 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name) + 1;
+				matrix[rowno][a]=myEdge->z_imag;
+				rowno++;
+				a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName)+1;
+				matrix[rowno][a]=1;
+				a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName)+1;
+				matrix[rowno][a]=-1;
+				a= 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name) + 1;
+				matrix[rowno][a]=-1*myEdge->z_real;
+				a= 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
+				matrix[rowno][a]=myEdge->z_imag;
+				rowno++;
+			}
 			else
 			{
 				if(myEdge->info->type == 'I')
 				{
 					myEdge->i_imag = 0;
 					myEdge->i_real = myEdge->info->amplitude;
+					a = 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
+					matrix[rowno][a]=1;
+					a = 2 * circuit->myAdjList->size + 2*circuit->myEdgeList->size;
+					matrix[rowno][a]=myEdge->i_real;
+					rowno++;
+					a = 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name) + 1;
+					matrix[rowno][a]=1;
+					rowno++;
 				}
 				else
 				{
-					//nothing here
+					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName);
+					matrix[rowno][a]=1;
+					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName);
+					matrix[rowno][a]=-1;
+					rowno++;
+					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName)+1;
+					matrix[rowno][a]=1;
+					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName)+1;
+					matrix[rowno][a]=-1;
+					rowno++;
 				}
 			}
 		}
@@ -382,26 +419,45 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 				if(indexInAdjList(circuit->myAdjList,myVertex->netName)==indexInAdjList(circuit->myAdjList,myEdge->v1->netName))
 				{
 					//add myEdge->i_real , myEdge->i_imag to matrix
+					a = 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
+					matrix[rowno][a]=1;
+					matrix[rowno+1][a+1]=1;
 				}
 				else
 				{
-					//add neg myEdge-> i_real ,neg myEdge-> i_imag to matrix	
+					//add neg myEdge-> i_real ,neg myEdge-> i_imag to matrix
+					a = 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
+					matrix[rowno][a]=-1;
+					matrix[rowno+1][a+1]=-1;
 				}
 			}
+			rowno+=2;
 		}	
 	}
 	else
 	{
 		//w=0
 		//set all
-
 	}		
 }
+
+void printmatrix(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1])
+{
+	int i,j;
+	for (i=0;i < 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1;i++)
+	{
+		for (j=0;j < 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1;j++)
+			printf("%f ",matrix[i][j]);
+		printf("\n");
+	}
+}
+
+
 
 int main(int argc, char *argv[])
 {
 	/*Our graph initialisation*/
-	invert();
+	//invert();
 	circuit = newGraph();
 
 	/*Reading from file*/
@@ -424,10 +480,15 @@ int main(int argc, char *argv[])
 	yyparse();
 
     float matrix[2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1];
+	int i=0,j=0;
+	for (i=0;i < 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1;i++)
+		for (j=0;j < 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1;j++)
+			matrix[i][j]=0;
+
 	/*Writing initial part of the svg file*/
 
 	fprintf(output,"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%d\" height=\"%d\" onload=\"init(evt)\"> \n ",200*circuit->myAdjList->size + 200, 200*circuit->myEdgeList->size + 200);
-	int i,flag=0;
+	int flag=0;
 	int noedges = circuit->myEdgeList->size;
 
 	fprintf(output,scripts);
@@ -515,5 +576,21 @@ int main(int argc, char *argv[])
 	//printAdjList(circuit->myAdjList);
 	fprintf(output,buttons);
 	fclose(output);
+
+
+	/*AC CIRCUIT SOLVER*/
+
+	edge* myEdge;
+	float w;
+	for(i=0; i<circuit->myEdgeList->size; i++)
+	{
+		myEdge=getInEdgeList(circuit->myEdgeList,i);
+		if(myEdge->info->isSource == 0)
+		{
+			w=myEdge->info->val;
+			assigncomplex(w,matrix);
+			printmatrix(matrix);
+		}
+	}
 	return 0;
 }
