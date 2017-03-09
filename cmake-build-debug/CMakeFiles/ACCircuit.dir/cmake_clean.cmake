@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ACCircuit.dir/parser.tab.c.obj"
   "CMakeFiles/ACCircuit.dir/lex.yy.c.obj"
   "CMakeFiles/ACCircuit.dir/main.c.obj"
+  "CMakeFiles/ACCircuit.dir/eqsolve.c.obj"
   "ACCircuit.pdb"
   "ACCircuit.exe"
   "ACCircuit.exe.manifest"

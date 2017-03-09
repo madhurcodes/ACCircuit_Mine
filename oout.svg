@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1800"> 
- 	<line x1="50" y1="25" x2="50" y2="1700" stroke-width="2" stroke="black" />
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="2000"> 
+ 	<line x1="50" y1="25" x2="50" y2="1900" stroke-width="2" stroke="black" />
  <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="55" y="50">Net55</text></g><ellipse cx="50" cy="25" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="50" cy="1700" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> 	<line x1="250" y1="25" x2="250" y2="1700" stroke-width="2" stroke="black" />
+<text x="55" y="50">Net55</text></g><ellipse cx="50" cy="25" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="50" cy="1900" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> 	<line x1="250" y1="25" x2="250" y2="1900" stroke-width="2" stroke="black" />
  <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="255" y="50">55</text></g><ellipse cx="250" cy="25" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="1700" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> 	<line x1="450" y1="25" x2="450" y2="1700" stroke-width="2" stroke="black" />
+<text x="255" y="50">55</text></g><ellipse cx="250" cy="25" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="1900" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> 	<line x1="450" y1="25" x2="450" y2="1900" stroke-width="2" stroke="black" />
  <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="455" y="50">Net1</text></g><ellipse cx="450" cy="25" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="450" cy="1700" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g transform="translate(100.000000,100)">
+<text x="455" y="50">Net1</text></g><ellipse cx="450" cy="25" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="450" cy="1900" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g transform="translate(100.000000,100)">
 
 <ellipse cx="50" cy="25" rx="25" ry="25"
 	stroke="black" stroke-width="2" fill="none" />  
@@ -26,7 +26,7 @@
 	stroke-width="2" stroke="black" /></g>	<line x1="50" y1="125" x2="100.000000" y2="125" stroke-width="2" stroke="black" />
  	<line x1="200.000000" y1="125" x2="250" y2="125" stroke-width="2" stroke="black" />
  <ellipse cx="50" cy="125" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="125" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="117">I1s</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="117">I1fdsfdss</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
 <text x="60" y="168">SINE (55 1 155Khz 55.55S 0) </text></g><g transform="translate(100.000000,300)">
 
 <ellipse cx="50" cy="25" rx="25" ry="25"
@@ -48,7 +48,7 @@
 	stroke-width="2" stroke="black" /></g>	<line x1="50" y1="325" x2="100.000000" y2="325" stroke-width="2" stroke="black" />
  	<line x1="200.000000" y1="325" x2="250" y2="325" stroke-width="2" stroke="black" />
  <ellipse cx="50" cy="325" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="325" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="317">I1ss</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="317">I1s</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
 <text x="60" y="368">SINE (55 1 155Khz 55.55S 0) </text></g><g transform="translate(100.000000,500)">
 
 <ellipse cx="50" cy="25" rx="25" ry="25"
@@ -70,32 +70,30 @@
 	stroke-width="2" stroke="black" /></g>	<line x1="50" y1="525" x2="100.000000" y2="525" stroke-width="2" stroke="black" />
  	<line x1="200.000000" y1="525" x2="250" y2="525" stroke-width="2" stroke="black" />
  <ellipse cx="50" cy="525" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="525" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="517">I1</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="517">I1ss</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
 <text x="60" y="568">SINE (55 1 155Khz 55.55S 0) </text></g><g transform="translate(100.000000,700)">
-<line x1="0" y1="25" x2="40" y2="25" 
+
+<ellipse cx="50" cy="25" rx="25" ry="25"
+	stroke="black" stroke-width="2" fill="none" />  
+	
+<line x1="0" y1="25" x2="25" y2="25" 
 	stroke-width="2" stroke="black" />
-	<line x1="40" y1="0" x2="40" y2="50" 
+
+<line x1="75" y1="25" x2="100" y2="25" 
 	stroke-width="2" stroke="black" />
-	<line x1="60" y1="0" x2="60" y2="50" 
+
+<line x1="30" y1="25" x2="70" y2="25" 
 	stroke-width="2" stroke="black" />
-	<line x1="60" y1="25" x2="100" y2="25" 
+
+<line x1="50" y1="15" x2="70" y2="25" 
+	stroke-width="2" stroke="black" />
+
+<line x1="50" y1="35" x2="70" y2="25" 
 	stroke-width="2" stroke="black" /></g>	<line x1="50" y1="725" x2="100.000000" y2="725" stroke-width="2" stroke="black" />
  	<line x1="200.000000" y1="725" x2="250" y2="725" stroke-width="2" stroke="black" />
  <ellipse cx="50" cy="725" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="725" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="717">C2</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="768">155 NF</text></g><g transform="translate(100.000000,900)">
- <path d="M 0 25 L 25 25, 30 0, 40 50, 50 0, 60 50, 70 0, 75 25, 100 25"
-stroke="black" fill="none" stroke-width="2"/>	 </g>	<line x1="50" y1="925" x2="100.000000" y2="925" stroke-width="2" stroke="black" />
- 	<line x1="200.000000" y1="925" x2="250" y2="925" stroke-width="2" stroke="black" />
- <ellipse cx="50" cy="925" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="925" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="917">R2</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="968">1 K</text></g><g transform="translate(100.000000,1100)">
-<path 
-     d="M 0,25 L 20,25 C 20,25 20,0 30,0 C 40,0 40,25 40,25 C 40,25 40,0 50,0 C 60,0 60,25 60,25 C 60,25 60,0 70,0 C 80,0 80,25 80,25 L 100,25" stroke="black" fill="none" stroke-width="2"/>	</g>	<line x1="50" y1="1125" x2="100.000000" y2="1125" stroke-width="2" stroke="black" />
- 	<line x1="200.000000" y1="1125" x2="250" y2="1125" stroke-width="2" stroke="black" />
- <ellipse cx="50" cy="1125" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="1125" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="1117">L1</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="1168">155 NH</text></g><g transform="translate(200.000000,1300)">
+<text x="60" y="717">I1</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="768">SINE (55 1 155Khz 55.55S 0) </text></g><g transform="translate(100.000000,900)">
 <line x1="0" y1="25" x2="40" y2="25" 
 	stroke-width="2" stroke="black" />
 	<line x1="40" y1="0" x2="40" y2="50" 
@@ -103,14 +101,38 @@ stroke="black" fill="none" stroke-width="2"/>	 </g>	<line x1="50" y1="925" x2="1
 	<line x1="60" y1="0" x2="60" y2="50" 
 	stroke-width="2" stroke="black" />
 	<line x1="60" y1="25" x2="100" y2="25" 
-	stroke-width="2" stroke="black" /></g>	<line x1="50" y1="1325" x2="200.000000" y2="1325" stroke-width="2" stroke="black" />
- 	<line x1="300.000000" y1="1325" x2="450" y2="1325" stroke-width="2" stroke="black" />
- <ellipse cx="50" cy="1325" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="450" cy="1325" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="1317">C1</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="1368">15555 NF</text></g><g transform="translate(300.000000,1500)">
+	stroke-width="2" stroke="black" /></g>	<line x1="50" y1="925" x2="100.000000" y2="925" stroke-width="2" stroke="black" />
+ 	<line x1="200.000000" y1="925" x2="250" y2="925" stroke-width="2" stroke="black" />
+ <ellipse cx="50" cy="925" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="925" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="917">C2</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="968">155 NF</text></g><g transform="translate(100.000000,1100)">
  <path d="M 0 25 L 25 25, 30 0, 40 50, 50 0, 60 50, 70 0, 75 25, 100 25"
-stroke="black" fill="none" stroke-width="2"/>	 </g>	<line x1="250" y1="1525" x2="300.000000" y2="1525" stroke-width="2" stroke="black" />
- 	<line x1="400.000000" y1="1525" x2="450" y2="1525" stroke-width="2" stroke="black" />
- <ellipse cx="250" cy="1525" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="450" cy="1525" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="1517">R1</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
-<text x="60" y="1568">155 K</text></g></svg>
+stroke="black" fill="none" stroke-width="2"/>	 </g>	<line x1="50" y1="1125" x2="100.000000" y2="1125" stroke-width="2" stroke="black" />
+ 	<line x1="200.000000" y1="1125" x2="250" y2="1125" stroke-width="2" stroke="black" />
+ <ellipse cx="50" cy="1125" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="1125" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="1117">R2</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="1168">1 K</text></g><g transform="translate(100.000000,1300)">
+<path 
+     d="M 0,25 L 20,25 C 20,25 20,0 30,0 C 40,0 40,25 40,25 C 40,25 40,0 50,0 C 60,0 60,25 60,25 C 60,25 60,0 70,0 C 80,0 80,25 80,25 L 100,25" stroke="black" fill="none" stroke-width="2"/>	</g>	<line x1="50" y1="1325" x2="100.000000" y2="1325" stroke-width="2" stroke="black" />
+ 	<line x1="200.000000" y1="1325" x2="250" y2="1325" stroke-width="2" stroke="black" />
+ <ellipse cx="50" cy="1325" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="250" cy="1325" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="1317">L1</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="1368">155 NH</text></g><g transform="translate(200.000000,1500)">
+<line x1="0" y1="25" x2="40" y2="25" 
+	stroke-width="2" stroke="black" />
+	<line x1="40" y1="0" x2="40" y2="50" 
+	stroke-width="2" stroke="black" />
+	<line x1="60" y1="0" x2="60" y2="50" 
+	stroke-width="2" stroke="black" />
+	<line x1="60" y1="25" x2="100" y2="25" 
+	stroke-width="2" stroke="black" /></g>	<line x1="50" y1="1525" x2="200.000000" y2="1525" stroke-width="2" stroke="black" />
+ 	<line x1="300.000000" y1="1525" x2="450" y2="1525" stroke-width="2" stroke="black" />
+ <ellipse cx="50" cy="1525" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="450" cy="1525" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="1517">C1</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="1568">15555 NF</text></g><g transform="translate(300.000000,1700)">
+ <path d="M 0 25 L 25 25, 30 0, 40 50, 50 0, 60 50, 70 0, 75 25, 100 25"
+stroke="black" fill="none" stroke-width="2"/>	 </g>	<line x1="250" y1="1725" x2="300.000000" y2="1725" stroke-width="2" stroke="black" />
+ 	<line x1="400.000000" y1="1725" x2="450" y2="1725" stroke-width="2" stroke="black" />
+ <ellipse cx="250" cy="1725" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <ellipse cx="450" cy="1725" rx="5" ry="5" stroke="black" stroke-width="2" fill="black" /> <g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="1717">R1</text></g><g fill="#000000" font-family="Arial,Helvetica" font-weight="bold" text-anchor="start" font-size="22px">
+<text x="60" y="1768">155 K</text></g></svg>

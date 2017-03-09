@@ -320,6 +320,7 @@ void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitu
 int main(int argc, char *argv[])
 {
 	/*Our graph initialisation*/
+	invert();
 	circuit = newGraph();
 
 	/*Reading from file*/

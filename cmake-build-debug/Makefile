@@ -122,6 +122,33 @@ ACCircuit/fast:
 	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/build
 .PHONY : ACCircuit/fast
 
+eqsolve.obj: eqsolve.c.obj
+
+.PHONY : eqsolve.obj
+
+# target to build an object file
+eqsolve.c.obj:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/eqsolve.c.obj
+.PHONY : eqsolve.c.obj
+
+eqsolve.i: eqsolve.c.i
+
+.PHONY : eqsolve.i
+
+# target to preprocess a source file
+eqsolve.c.i:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/eqsolve.c.i
+.PHONY : eqsolve.c.i
+
+eqsolve.s: eqsolve.c.s
+
+.PHONY : eqsolve.s
+
+# target to generate assembly for a file
+eqsolve.c.s:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/eqsolve.c.s
+.PHONY : eqsolve.c.s
+
 lex.yy.obj: lex.yy.c.obj
 
 .PHONY : lex.yy.obj
@@ -239,6 +266,9 @@ help:
 	@echo ... ACCircuit
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... eqsolve.obj
+	@echo ... eqsolve.i
+	@echo ... eqsolve.s
 	@echo ... lex.yy.obj
 	@echo ... lex.yy.i
 	@echo ... lex.yy.s
