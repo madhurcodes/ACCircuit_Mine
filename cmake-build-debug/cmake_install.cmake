@@ -1,4 +1,4 @@
-# Install script for directory: H:/stdy/IIT Sem 4/COP290/ACCircuit
+# Install script for directory: X:/clion_projects/ACCircuit_Mine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "H:/stdy/IIT Sem 4/COP290/ACCircuit/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "X:/clion_projects/ACCircuit_Mine/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

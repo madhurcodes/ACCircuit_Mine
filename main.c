@@ -321,11 +321,11 @@ void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitu
 	edgeListInsert(e->v2->myEdgeList, e);
 }
 
-void assigncomplex(float w)
+void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1])
 {
 	edge *myEdge;
 	vertice *myVertex;
-	int i=0;
+	int i=0,a=0,b=0;
 	if(w>0)
 	{
 		for(i=0; i<circuit->myEdgeList->size; i++)
@@ -345,8 +345,8 @@ void assigncomplex(float w)
 				}
 				else if(myEdge->info->type == 'C') 
 				{	
-					myEdge->z_imag = -1.0/(myEdge->info->val*w);
-					myEdge->z_real = 0;	
+					myEdge->z_imag = -1/(myEdge->info->val*w);
+					myEdge->z_real = 0;
 				}
 				else
 				{
@@ -355,7 +355,9 @@ void assigncomplex(float w)
 				//v1_real+-v2_real-i_real*z_real+i_imag*z_imag=0
 				//v1_imag-v2_imag-i_imag_z_real-i_real*z_imag=0
 				//add myEdge->v1->v_real,v_imag; neg myEdge->v2->v_real,imag; myEdge->z_imag
-				}
+
+                matrix[a][b]=1;
+            }
 			else
 			{
 				if(myEdge->info->type == 'I')
@@ -420,6 +422,7 @@ int main(int argc, char *argv[])
 
 	yyparse();
 
+    float matrix[2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1];
 	/*Writing initial part of the svg file*/
 
 	fprintf(output,"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%d\" height=\"%d\" onload=\"init(evt)\"> \n ",200*circuit->myAdjList->size + 200, 200*circuit->myEdgeList->size + 200);
