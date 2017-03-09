@@ -9,7 +9,7 @@
 #endif //ACCIRCUIT_MYHEADER_H
 #include <stdio.h>
 
-int invert();
+
 typedef struct
 {
     char *name;

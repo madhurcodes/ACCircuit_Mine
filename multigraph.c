@@ -79,14 +79,18 @@ void adjListInsert(adjList *a, vertice *b)
     a->size += 1;
     adjListNode *toInsert = (adjListNode *) calloc(1,sizeof(adjListNode));
     toInsert->myVetice = b;
+    adjListNode* temp = a->head;
     if(a->head == NULL)
     {
         a->head = toInsert;
     }
     else
     {
-        toInsert->next = a->head;
-        a->head = toInsert;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        toInsert->next = NULL;
+        temp->next = toInsert;
     }
 }
 
@@ -190,6 +194,7 @@ void edgeListInsert(edgeList *a, edge *b)
 {
     edgeListNode *toInsert = (edgeListNode *) calloc(1,sizeof(edgeListNode));
     a->size += 1;
+    edgeListNode *temp = a->head;
     toInsert->myEdge = b;
     if(a->head == NULL)
     {
@@ -197,8 +202,11 @@ void edgeListInsert(edgeList *a, edge *b)
     }
     else
     {
-        toInsert->next = a->head;
-        a->head = toInsert;
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        toInsert->next = NULL;
+        temp->next = toInsert;
     }
 }
 

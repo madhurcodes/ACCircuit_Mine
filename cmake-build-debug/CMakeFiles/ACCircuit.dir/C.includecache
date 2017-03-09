@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-X:/clion_projects/ACCircuit_Mine/eqsolve.c
+H:/stdy/IIT Sem 4/COP290/ACCircuit/eqsolve.c
 stdio.h
 -
 
-X:/clion_projects/ACCircuit_Mine/lex.yy.c
+H:/stdy/IIT Sem 4/COP290/ACCircuit/lex.yy.c
 stdio.h
 -
 string.h
@@ -26,11 +26,11 @@ stdio.h
 string.h
 -
 parser.tab.h
-X:/clion_projects/ACCircuit_Mine/parser.tab.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.h
 unistd.h
 -
 
-X:/clion_projects/ACCircuit_Mine/main.c
+H:/stdy/IIT Sem 4/COP290/ACCircuit/main.c
 stdio.h
 -
 malloc.h
@@ -38,11 +38,11 @@ malloc.h
 string.h
 -
 myheader.h
-X:/clion_projects/ACCircuit_Mine/myheader.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
 math.h
 -
 
-X:/clion_projects/ACCircuit_Mine/multigraph.c
+H:/stdy/IIT Sem 4/COP290/ACCircuit/multigraph.c
 stdio.h
 -
 malloc.h
@@ -50,13 +50,13 @@ malloc.h
 string.h
 -
 myheader.h
-X:/clion_projects/ACCircuit_Mine/myheader.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
 
-X:/clion_projects/ACCircuit_Mine/myheader.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
 stdio.h
 -
 
-X:/clion_projects/ACCircuit_Mine/parser.tab.c
+H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.c
 stdio.h
 -
 ctype.h
@@ -82,5 +82,5 @@ stdlib.h
 stdio.h
 -
 
-X:/clion_projects/ACCircuit_Mine/parser.tab.h
+H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.h
 

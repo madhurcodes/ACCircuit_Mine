@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "X:/clion_projects/ACCircuit_Mine/eqsolve.c" "X:/clion_projects/ACCircuit_Mine/cmake-build-debug/CMakeFiles/ACCircuit.dir/eqsolve.c.obj"
-  "X:/clion_projects/ACCircuit_Mine/lex.yy.c" "X:/clion_projects/ACCircuit_Mine/cmake-build-debug/CMakeFiles/ACCircuit.dir/lex.yy.c.obj"
-  "X:/clion_projects/ACCircuit_Mine/main.c" "X:/clion_projects/ACCircuit_Mine/cmake-build-debug/CMakeFiles/ACCircuit.dir/main.c.obj"
-  "X:/clion_projects/ACCircuit_Mine/multigraph.c" "X:/clion_projects/ACCircuit_Mine/cmake-build-debug/CMakeFiles/ACCircuit.dir/multigraph.c.obj"
-  "X:/clion_projects/ACCircuit_Mine/parser.tab.c" "X:/clion_projects/ACCircuit_Mine/cmake-build-debug/CMakeFiles/ACCircuit.dir/parser.tab.c.obj"
+  "H:/stdy/IIT Sem 4/COP290/ACCircuit/eqsolve.c" "H:/stdy/IIT Sem 4/COP290/ACCircuit/cmake-build-debug/CMakeFiles/ACCircuit.dir/eqsolve.c.obj"
+  "H:/stdy/IIT Sem 4/COP290/ACCircuit/lex.yy.c" "H:/stdy/IIT Sem 4/COP290/ACCircuit/cmake-build-debug/CMakeFiles/ACCircuit.dir/lex.yy.c.obj"
+  "H:/stdy/IIT Sem 4/COP290/ACCircuit/main.c" "H:/stdy/IIT Sem 4/COP290/ACCircuit/cmake-build-debug/CMakeFiles/ACCircuit.dir/main.c.obj"
+  "H:/stdy/IIT Sem 4/COP290/ACCircuit/multigraph.c" "H:/stdy/IIT Sem 4/COP290/ACCircuit/cmake-build-debug/CMakeFiles/ACCircuit.dir/multigraph.c.obj"
+  "H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.c" "H:/stdy/IIT Sem 4/COP290/ACCircuit/cmake-build-debug/CMakeFiles/ACCircuit.dir/parser.tab.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
