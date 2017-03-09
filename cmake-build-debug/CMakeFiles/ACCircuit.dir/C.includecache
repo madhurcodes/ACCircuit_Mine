@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+H:/stdy/IIT Sem 4/COP290/ACCircuit/eqsolve.c
+stdio.h
+-
+
 H:/stdy/IIT Sem 4/COP290/ACCircuit/lex.yy.c
 stdio.h
 -
