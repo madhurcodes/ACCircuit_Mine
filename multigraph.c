@@ -288,4 +288,9 @@ vertice *newVertice(char *b)
     a->v_imag = 0;
     return  a;
 }
-
+int neighboursof(vertice* v){
+    return v->myEdgeList->size;
+}
+edge *edgesfrom(vertice* v, int a){
+    return getInEdgeList(v->myEdgeList,a);
+}
