@@ -57,7 +57,6 @@ int indexInEdgeList(edgeList *a, char *name)
             {
                 curr = curr->next;
                 temp++;
-
             }
         }
         return  -1;
@@ -260,6 +259,10 @@ edge *newEdge(vertice *i1, vertice *i2, float n, char *namee , char typ, char* s
     a->info->stringed = stuff;
     a->info->name = (char *) calloc(strlen(namee),sizeof('a'));
     strcpy(a->info->name, namee);
+    a->i_real=0;
+    a->i_imag=0;
+    a->z_real=0;
+    a->z_imag=0;
     return  a;
 }
 
@@ -281,5 +284,8 @@ vertice *newVertice(char *b)
     a->netName = (char **) calloc(1,sizeof(a->netName));
     a->myEdgeList = (edgeList *) calloc(1,sizeof(edgeList));
     *(a->netName) = b;
+    a->v_real = 0;
+    a->v_imag = 0;
     return  a;
 }
+
