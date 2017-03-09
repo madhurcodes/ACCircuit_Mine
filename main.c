@@ -70,6 +70,10 @@ char ground[] = "\t<line x1=\"50\" y1=\"0\" x2=\"50\" y2=\"20\" \n"
 "\t<line x1=\"45\" y1=\"50\" x2=\"55\" y2=\"50\" \n"
 "\tstroke-width=\"2\" stroke=\"black\" />" ;
 
+char buttons[] = "    </g>\n    <circle cx=\"50\" cy=\"50\" r=\"42\" fill=\"white\" opacity=\"0.75\"/>\n  <path class=\"button\" onmousedown=\"pan( 0, 50)\" d=\"M50 10 l12   20 a40, 70 0 0,0 -24,  0z\" />\n  <path class=\"button\" onmousedown=\"pan( 50, 0)\" d=\"M10 50 l20  -12 a70, 40 0 0,0   0, 24z\" />\n  <path class=\"button\" onmousedown=\"pan( 0,-50)\" d=\"M50 90 l12  -20 a40, 70 0 0,1 -24,  0z\" />\n  <path class=\"button\" onmousedown=\"pan(-50, 0)\" d=\"M90 50 l-20 -12 a70, 40 0 0,1   0, 24z\" />\n  \n  <circle class=\"compass\" cx=\"50\" cy=\"50\" r=\"20\"/>\n  <circle class=\"button\"  cx=\"50\" cy=\"41\" r=\"8\" onclick=\"zoom(0.8)\"/>\n  <circle class=\"button\"  cx=\"50\" cy=\"59\" r=\"8\" onclick=\"zoom(1.25)\"/>\n\n  <rect class=\"plus-minus\" x=\"46\" y=\"39.5\" width=\"8\" height=\"3\"/>\n  <rect class=\"plus-minus\" x=\"46\" y=\"57.5\" width=\"8\" height=\"3\"/>\n  <rect class=\"plus-minus\" x=\"48.5\" y=\"55\" width=\"3\" height=\"8\"/>\n</svg>"
+
+char scripts[]= "\n  \n  <style>\n  \t\t.territory:hover{\n\t\t\tfill:           #22aa44;\n\t\t}\n  \t\t.compass{\n  \t\t\tfill:\t\t\t#fff;\n  \t\t\tstroke:\t\t\t#000;\n  \t\t\tstroke-width:\t1.5;\n  \t\t}\n   \t\t.button{\n\t\t    fill:           \t#225EA8;\n\t\t\tstroke:   \t\t\t#0C2C84;\n\t\t\tstroke-miterlimit:\t6;\n\t\t\tstroke-linecap:\t\tround;\n\t\t}\n\t\t.button:hover{\n\t\t\tstroke-width:   \t2;\n\t\t}\n\t\t.plus-minus{\n\t\t\tfill:\t#fff;\n\t\t\tpointer-events: none;\n\t\t}\n\t\ttext {\n\t\t\ttext-anchor: middle;\n\t\t\tfont-family: Arial, sans;\n\t\t\tfont-size:12px;\n\t\t\tpointer-events: none;\n\t\t}\n  </style>\n  <script type=\"text/ecmascript\">\n    <![CDATA[\n    var svgNS = \"http://www.w3.org/2000/svg\";\n    var re1   = /matrix\\((\\S+) (\\S+) (\\S+) (\\S+) (\\S+) (\\S+)\\)/;\n    var re2   = /translate\\((\\S+) (\\S+)\\)/;\n\tvar trans_matrix = [1,0,0,1,0,0]\n\n    function init(evt)\n    {\n        if ( window.svgDocument == null )\n        {\n            svgDocument = evt.target.ownerDocument;\n        }\n        mapTransform = svgDocument.getElementById(\"viewport\");\n        nameTranslate = svgDocument.getElementById(\"names\");\n    }\n   \n\n    function pan(dx, dy)\n    {\n    \n\t\tvar current_transform = mapTransform.getAttributeNS(null, \"transform\");\n\t\tvar match = re1.exec(current_transform);\n     \n    \tmatch[5] = parseFloat(match[5]) + dx;\n    \tmatch[6] = parseFloat(match[6]) + dy;\n    \n    \tnew_transform = \"matrix(\" +  match.slice(1).join(' ') + \")\";\n    \tmapTransform.setAttributeNS(null, \"transform\", new_transform);\n        \n    \t/*for (var i=0; i<nameTranslate.childNodes.length; i++)\n    \t{\n    \t\tif (nameTranslate.childNodes[i].nodeName == \"text\")\n    \t\t{\n    \t\t\tvar child = nameTranslate.childNodes[i];\n    \t\t\tvar x = parseFloat(child.getAttributeNS(null, \"x\"));\n    \t\t\tvar y = parseFloat(child.getAttributeNS(null, \"y\"));\n\t\t    \tvar new_x = x + dx;\n    \t\t\tvar new_y = y + dy;\n    \t\t\tchild.setAttributeNS(null, \"x\", new_x);\n    \t\t\tchild.setAttributeNS(null, \"y\", new_y);\n    \t\t}\n    \t}*/\n    }   \n\n    function zoom(scale)\n\t{\n\t\tvar current_transform = mapTransform.getAttributeNS(null, \"transform\");\n\t\tvar match = re1.exec(current_transform);\n            \n       \tmatch[1] = parseFloat(match[1]) * scale;\n        match[2] = parseFloat(match[2]) * scale;\n    \tmatch[3] = parseFloat(match[3]) * scale;\n    \tmatch[4] = parseFloat(match[4]) * scale;\n    \tmatch[5] = parseFloat(match[5]) * scale + (1-scale)*250;\n    \tmatch[6] = parseFloat(match[6]) * scale + (1-scale)*150;\n    \n    \tnew_transform = \"matrix(\" +  match.slice(1).join(' ') + \")\";\n    \tmapTransform.setAttributeNS(null, \"transform\", new_transform);\n\n    \tfor (var i=0; i<nameTranslate.childNodes.length; i++)\n    \t{\n    \t\tif (nameTranslate.childNodes[i].nodeName == \"text\")\n    \t\t{\n    \t\t\tvar child = nameTranslate.childNodes[i];\n    \t\t\tvar x = parseFloat(child.getAttributeNS(null, \"x\"));\n    \t\t\tvar y = parseFloat(child.getAttributeNS(null, \"y\"));\n\t\t    \tvar new_x = 250 - (250 - x) * scale;\n    \t\t\tvar new_y = 150 - (150 - y) * scale;\n    \t\t\tchild.setAttributeNS(null, \"x\", new_x);\n    \t\t\tchild.setAttributeNS(null, \"y\", new_y);\n    \t\t}\n    \t}\n\n    }\n    \n  ]]></script>\n<g id=\"viewport\" transform=\"matrix(1 0 0 1 200 200)\">"
+
 /*Function to add a component to the graph*/
 
 void AddComponent(char *name, char *net1, char *net2 ,float num, char *multiplier)
@@ -317,6 +321,80 @@ void AddSource(char *name, char *net1, char *net2, float dcOffset, float amplitu
 	edgeListInsert(e->v2->myEdgeList, e);
 }
 
+void assigncomplex(float w)
+{
+	edge *myEdge;
+	vertice *myVertex;
+	int i=0;
+	if(w>0)
+	{
+		for(i=0; i<circuit->myEdgeList->size; i++)
+		{
+			myEdge=getInEdgeList(circuit->myEdgeList,i);
+			if(myEdge->info->isSource == 0)
+			{
+				if(myEdge->info->type == 'R')
+				{	
+					myEdge->z_imag = 0;
+					myEdge->z_real = myEdge->info->val;	
+				}
+				else if(myEdge->info->type == 'L') 
+				{	
+					myEdge->z_imag = myEdge->info->val*w;
+					myEdge->z_real = 0;	
+				}
+				else if(myEdge->info->type == 'C') 
+				{	
+					myEdge->z_imag = -1.0/(myEdge->info->val*w);
+					myEdge->z_real = 0;	
+				}
+				else
+				{
+					printf("error: wrong type");
+				}
+				//v1_real+-v2_real-i_real*z_real+i_imag*z_imag=0
+				//v1_imag-v2_imag-i_imag_z_real-i_real*z_imag=0
+				//add myEdge->v1->v_real,v_imag; neg myEdge->v2->v_real,imag; myEdge->z_imag
+				}
+			else
+			{
+				if(myEdge->info->type == 'I')
+				{
+					myEdge->i_imag = 0;
+					myEdge->i_real = myEdge->info->amplitude;
+				}
+				else
+				{
+					//nothing here
+				}
+			}
+		}
+		for(i=0; i<circuit->myAdjList->size; i++)
+		{
+			myVertex = getInAdjList(circuit->myAdjList,i);
+			int j=0;
+			for(j=0; j<neighboursof(myVertex); j++)  //DECLARE THIS
+			{
+				myEdge = edgesfrom(myVertex,j);		//DECLARE THIS	
+				if(indexInAdjList(circuit->myAdjList,myVertex->netName)==indexInAdjList(circuit->myAdjList,myEdge->v1->netName))
+				{
+					//add myEdge->i_real , myEdge->i_imag to matrix
+				}
+				else
+				{
+					//add neg myEdge-> i_real ,neg myEdge-> i_imag to matrix	
+				}
+			}
+		}	
+	}
+	else
+	{
+		//w=0
+		//set all
+
+	}		
+}
+
 int main(int argc, char *argv[])
 {
 	/*Our graph initialisation*/
@@ -344,10 +422,11 @@ int main(int argc, char *argv[])
 
 	/*Writing initial part of the svg file*/
 
-	fprintf(output,"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%d\" height=\"%d\"> \n ",200*circuit->myAdjList->size + 200, 200*circuit->myEdgeList->size + 200);
+	fprintf(output,"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"%d\" height=\"%d\" onload=\"init(evt)\"> \n ",200*circuit->myAdjList->size + 200, 200*circuit->myEdgeList->size + 200);
 	int i,flag=0;
 	int noedges = circuit->myEdgeList->size;
 
+	fprintf(output,scripts);
 	/*Drawing the grid*/
 
 	for(i=0; i<circuit->myAdjList->size; i++)
@@ -430,7 +509,7 @@ int main(int argc, char *argv[])
 	}
 	//printEdgeList(circuit->myEdgeList);
 	//printAdjList(circuit->myAdjList);
-	fprintf(output,"</svg>");
+	fprintf(output,buttons);
 	fclose(output);
 	return 0;
 }

@@ -27,6 +27,8 @@ typedef struct edgeList edgeList;
 typedef struct vertice
 {
     char **netName;
+    float v_real=0;
+    float v_imag=0;
     edgeList *myEdgeList;
 
 } vertice;
@@ -35,9 +37,13 @@ typedef struct
     vertice *v1;
     vertice *v2;
     edgeInfo *info;
+    float i_real=0;
+    float i_imag=0;
+    float z_real=0;
+    float z_imag=0;
 } edge;
 
-typedef struct edgeListNode 
+typedef struct edgeListNode
 {
     edge *myEdge;
     struct edgeListNode *next;
