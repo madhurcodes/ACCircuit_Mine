@@ -1,9 +1,9 @@
 #include<stdio.h>
 
 int invert()
-{
+{   int hh = 50;
     int i,j,k,n;
-    float A[50][50],c,x[100];
+    float A[hh][hh],c,x[100];
     printf("\nEnter the size of matrix: ");
     scanf("%d",&n);
     printf("\nEnter the elements of augmented matrix row-wise:\n");
