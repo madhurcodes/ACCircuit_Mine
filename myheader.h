@@ -10,6 +10,8 @@
 #include <stdio.h>
 
 
+
+
 typedef struct
 {
     char *name;
@@ -91,3 +93,9 @@ int indexInAdjList(adjList *a, char **name);
 int indexInEdgeList(edgeList *a, char *name);
 int neighboursof(vertice* v);
 edge *edgesfrom(vertice* v, int a);
+float determinant(float [][25], float);
+void cofactor(float [][25], float);
+void transpose(float [][25], float [][25], float);
+graph *circuit;
+int invert(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1]);
+int tryin(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1]);

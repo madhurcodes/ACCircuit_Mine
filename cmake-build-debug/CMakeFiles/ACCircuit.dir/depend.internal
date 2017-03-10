@@ -3,6 +3,10 @@
 
 CMakeFiles/ACCircuit.dir/eqsolve.c.obj
  H:/stdy/IIT Sem 4/COP290/ACCircuit/eqsolve.c
+ H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
+CMakeFiles/ACCircuit.dir/gj.c.obj
+ H:/stdy/IIT Sem 4/COP290/ACCircuit/gj.c
+ H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
 CMakeFiles/ACCircuit.dir/lex.yy.c.obj
  H:/stdy/IIT Sem 4/COP290/ACCircuit/lex.yy.c
  H:/stdy/IIT Sem 4/COP290/ACCircuit/parser.tab.h

@@ -9,6 +9,7 @@
 
 
 /*Function to get the index of an element in the vertex list */
+
 int indexInAdjList(adjList *a, char **name)
 {
     /*A simple implementation with a counter and moving to next.*/

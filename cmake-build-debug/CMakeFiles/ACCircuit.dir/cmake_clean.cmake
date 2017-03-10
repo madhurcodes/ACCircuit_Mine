@@ -4,6 +4,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ACCircuit.dir/lex.yy.c.obj"
   "CMakeFiles/ACCircuit.dir/main.c.obj"
   "CMakeFiles/ACCircuit.dir/eqsolve.c.obj"
+  "CMakeFiles/ACCircuit.dir/gj.c.obj"
   "ACCircuit.pdb"
   "ACCircuit.exe"
   "ACCircuit.exe.manifest"
