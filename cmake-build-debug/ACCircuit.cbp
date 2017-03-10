@@ -83,6 +83,9 @@
 		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/eqsolve.c">
 			<Option target="ACCircuit"/>
 		</Unit>
+		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/gj.c">
+			<Option target="ACCircuit"/>
+		</Unit>
 		<Unit filename="H:/stdy/IIT Sem 4/COP290/ACCircuit/lex.yy.c">
 			<Option target="ACCircuit"/>
 		</Unit>

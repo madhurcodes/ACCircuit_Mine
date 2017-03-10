@@ -149,6 +149,33 @@ eqsolve.c.s:
 	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/eqsolve.c.s
 .PHONY : eqsolve.c.s
 
+gj.obj: gj.c.obj
+
+.PHONY : gj.obj
+
+# target to build an object file
+gj.c.obj:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/gj.c.obj
+.PHONY : gj.c.obj
+
+gj.i: gj.c.i
+
+.PHONY : gj.i
+
+# target to preprocess a source file
+gj.c.i:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/gj.c.i
+.PHONY : gj.c.i
+
+gj.s: gj.c.s
+
+.PHONY : gj.s
+
+# target to generate assembly for a file
+gj.c.s:
+	$(MAKE) -f CMakeFiles\ACCircuit.dir\build.make CMakeFiles/ACCircuit.dir/gj.c.s
+.PHONY : gj.c.s
+
 lex.yy.obj: lex.yy.c.obj
 
 .PHONY : lex.yy.obj
@@ -269,6 +296,9 @@ help:
 	@echo ... eqsolve.obj
 	@echo ... eqsolve.i
 	@echo ... eqsolve.s
+	@echo ... gj.obj
+	@echo ... gj.i
+	@echo ... gj.s
 	@echo ... lex.yy.obj
 	@echo ... lex.yy.i
 	@echo ... lex.yy.s

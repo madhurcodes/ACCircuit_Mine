@@ -9,7 +9,10 @@
 extern FILE * yyin;
 extern  int yyparse();
 FILE *output;
-graph *circuit;
+
+
+
+extern graph *circuit;
 
 int rowno = 0;
 /*svg code for various symbols used*/
@@ -78,47 +81,7 @@ char scripts[]= "\n  \n  <style>\n  \t\t.territory:hover{\n\t\t\tfill:          
 
 
 
-int invert(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1])
-{
-	int i,j,k,n;
-	int hh = 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1;
-	//printf("\nEnter the size of matrix: ");
-	//scanf("%d",&hh);
-	float A[hh][hh],c,x[hh-1];
-//	printf("\nEnter the elements of augmented matrix row-wise:\n");
-	for(i=0; i<=hh-2; i++)
-	{
-		for(j=0; j<=hh-1; j++)
-		{
-			//printf(" A[%d][%d]:", i,j);
-			A[i][j] = matrix[i][j];
-			//	scanf("%f",&A[i][j]);
-		}
-	}
-	/* Now finding the elements of diagonal matrix */
-	for(j=0; j<=hh-2; j++)
-	{
-		for(i=0; i<=hh-2; i++)
-		{
-			if(i!=j)
-			{
-				c=A[i][j]/A[j][j];
-				for(k=0; k<=hh-1; k++)
-				{
-					A[i][k]=A[i][k]-c*A[j][k];
-				}
-			}
-		}
-	}
-	printf("\nThe solution is:\n");
-	for(i=0; i<=hh-2; i++)
-	{
-		x[i]=A[i][hh-1]/A[i][i];
-		printf("\n x%d=%f\n",i,x[i]);
-	}
 
-	return(0);
-}
 
 
 /*Function to add a component to the graph*/
@@ -390,12 +353,12 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 				}
 				else if(myEdge->info->type == 'L') 
 				{	
-					myEdge->z_imag = myEdge->info->val*w;
+					myEdge->z_imag = myEdge->info->val*w*6.28318530718f;
 					myEdge->z_real = 0;	
 				}
 				else if(myEdge->info->type == 'C') 
 				{	
-					myEdge->z_imag = -1/(myEdge->info->val*w);
+					myEdge->z_imag = -1/(myEdge->info->val*w*6.28318530718f);
 					myEdge->z_real = 0;
 				}
 				else
@@ -434,10 +397,11 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 					a = 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
 					matrix[rowno][a]=1;
 					a = 2 * circuit->myAdjList->size + 2*circuit->myEdgeList->size;
-					matrix[rowno][a]=myEdge->i_real;
+					matrix[rowno][a]=myEdge->i_real; //see if neg
 					rowno++;
 					a = 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name) + 1;
 					matrix[rowno][a]=1;
+					// add complex here
 					rowno++;
 				}
 				else
@@ -446,11 +410,16 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 					matrix[rowno][a]=1;
 					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName);
 					matrix[rowno][a]=-1;
+					a= 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
+					matrix[rowno][a]= - myEdge->info->amplitude; //see if neg
 					rowno++;
 					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName)+1;
 					matrix[rowno][a]=1;
 					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName)+1;
 					matrix[rowno][a]=-1;
+					a= 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
+					// add complex here
+
 					rowno++;
 				}
 			}
@@ -513,8 +482,8 @@ int main(int argc, char *argv[])
 {
 	/*Our graph initialisation*/
 	//invert();
-	circuit = newGraph();
 
+	circuit = newGraph();
 	/*Reading from file*/
 	if(argc==3)
 	{
@@ -646,7 +615,8 @@ int main(int argc, char *argv[])
 			assigncomplex(w,matrix);
 			printmatrix(matrix);
 			printf("----ssssss--------");
-			invert(matrix);
+			tryin(matrix);
+			//invert(matrix);
 		}
 	}
 	return 0;
