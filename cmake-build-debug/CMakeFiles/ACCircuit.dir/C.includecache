@@ -19,6 +19,8 @@ stdio.h
 -
 math.h
 -
+malloc.h
+-
 myheader.h
 X:/clion_projects/ACCircuit_Mine/myheader.h
 

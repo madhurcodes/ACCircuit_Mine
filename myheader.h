@@ -10,6 +10,7 @@
 #include <stdio.h>
 
 
+float* mmmm;
 
 
 typedef struct
@@ -98,4 +99,4 @@ void cofactor(float [][25], float);
 void transpose(float [][25], float [][25], float);
 graph *circuit;
 int invert(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1]);
-int tryin(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1]);
+float* tryin(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1]);

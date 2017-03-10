@@ -9,9 +9,9 @@
 extern FILE * yyin;
 extern  int yyparse();
 FILE *output;
+float pii = 3.141592653589793238462643383279502884197169399375105820974944592307816406286;
 
-
-
+extern float* mmmm;
 extern graph *circuit;
 
 int rowno = 0;
@@ -340,7 +340,6 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 	int i=0,a=0;
 	if(w>0)
 	{
-        //kvl
 		for(i=0; i<circuit->myEdgeList->size; i++)
 		{
 			myEdge=getInEdgeList(circuit->myEdgeList,i);
@@ -354,12 +353,12 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 				}
 				else if(myEdge->info->type == 'L') 
 				{	
-					myEdge->z_imag = myEdge->info->val*w*6.28318530718f;
+					myEdge->z_imag = myEdge->info->val*w*2*pii;
 					myEdge->z_real = 0;	
 				}
 				else if(myEdge->info->type == 'C') 
 				{	
-					myEdge->z_imag = -1/(myEdge->info->val*w*6.28318530718f);
+					myEdge->z_imag = -1/(myEdge->info->val*w*2*pii);
 					myEdge->z_real = 0;
 				}
 				else
@@ -618,7 +617,8 @@ int main(int argc, char *argv[])
 		yyin = fopen("in.txt", "r");
 		output = fopen("oout.svg","w");
 	}
-
+	FILE* myResult;
+	myResult = fopen("results.txt","w");
 	yyparse();
 
     float matrix[2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1];
@@ -729,12 +729,35 @@ int main(int argc, char *argv[])
 		myEdge=getInEdgeList(circuit->myEdgeList,i);
 		if(myEdge->info->isSource == 1)
 		{
+			int nose;
+			int N = 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
 			w = myEdge->info->val;
 			assigncomplex(w,matrix);
 			printmatrix(matrix);
 			printf("----ssssss--------");
-			tryin(matrix);
+			float * igotthis = tryin(matrix);
 			//invert(matrix);
+			fprintf(myResult,"FREQ = %fKHz\n",myEdge->info->val/1000.0);
+			fprintf(myResult,"VOLTAGES\n");
+			int in1,in2,in33;
+			float real_vol,comp_vol,real_curr,comp_curr;
+			for(nose=0;nose<circuit->myEdgeList->size;nose++){
+				in1 = indexInAdjList(circuit->myAdjList,getInEdgeList(circuit->myEdgeList,nose)->v1->netName);
+				in2 = indexInAdjList(circuit->myAdjList,getInEdgeList(circuit->myEdgeList,nose)->v2->netName);
+				real_vol= mmmm[2*in1] - mmmm[2*in2];
+				comp_vol= mmmm[2*in1+1] - mmmm[2*in2+1];
+				fprintf(myResult,"%s %f %f\n",getInEdgeList(circuit->myEdgeList,nose)->info->name,0.001*sqrtf(real_vol*real_vol+comp_vol*comp_vol),atanf(comp_vol/real_vol)*180/pii);
+			}
+			fprintf(myResult,"\n");
+			fprintf(myResult,"CURRENTS\n");
+			for(nose=0;nose<circuit->myEdgeList->size;nose++){
+			//	in33 = indexInEdgeList(circuit->myEdgeList,getInEdgeList(circuit->myEdgeList,nose)->info->name);
+				real_curr = mmmm[2 * circuit->myAdjList->size + nose*2];
+				comp_curr = mmmm[2 * circuit->myAdjList->size + nose*2 + 1];
+				fprintf(myResult,"%s %f %f\n",getInEdgeList(circuit->myEdgeList,nose)->info->name,sqrtf(real_curr*real_curr+comp_curr*comp_curr)/1000,atanf(comp_curr/real_curr)*180/pii);
+			}
+			fprintf(myResult,"\n\n");
+
 		}
 	}
     //DC offset
