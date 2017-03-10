@@ -340,6 +340,7 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 	int i=0,a=0;
 	if(w>0)
 	{
+        //kvl
 		for(i=0; i<circuit->myEdgeList->size; i++)
 		{
 			myEdge=getInEdgeList(circuit->myEdgeList,i);
@@ -392,38 +393,68 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 			{
 				if(myEdge->info->type == 'I')
 				{
-					myEdge->i_imag = 0;
-					myEdge->i_real = myEdge->info->amplitude;
-					a = 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
-					matrix[rowno][a]=1;
-					a = 2 * circuit->myAdjList->size + 2*circuit->myEdgeList->size;
-					matrix[rowno][a]=myEdge->i_real; //see if neg
-					rowno++;
-					a = 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name) + 1;
-					matrix[rowno][a]=1;
-					// add complex here
-					rowno++;
-				}
-				else
-				{
-					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName);
-					matrix[rowno][a]=1;
-					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName);
-					matrix[rowno][a]=-1;
-					a= 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
-					matrix[rowno][a]= - myEdge->info->amplitude; //see if neg
-					rowno++;
-					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName)+1;
-					matrix[rowno][a]=1;
-					a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName)+1;
-					matrix[rowno][a]=-1;
-					a= 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
-					// add complex here
+                    if(myEdge->info->val!=w)
+                    {
+                        a = 2 * circuit->myAdjList->size + 2 * indexInEdgeList(circuit->myEdgeList, myEdge->info->name);
+                        matrix[rowno][a] = 1;
+                        rowno++;
+                        a = 2 * circuit->myAdjList->size + 2 * indexInEdgeList(circuit->myEdgeList, myEdge->info->name) + 1;
+                        matrix[rowno][a] = 1;
+                        rowno++;
+                    }
+                    else
+                    {
 
+                        myEdge->i_imag = myEdge->info->amplitude * sinf(myEdge->info->delay);
+                        myEdge->i_real = myEdge->info->amplitude * cosf(myEdge->info->delay);
+                        a = 2 * circuit->myAdjList->size + 2 * indexInEdgeList(circuit->myEdgeList, myEdge->info->name);
+                        matrix[rowno][a] = 1;
+                        a = 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
+                        matrix[rowno][a] = myEdge->i_real; //see if neg
+                        rowno++;
+                        a = 2 * circuit->myAdjList->size + 2 * indexInEdgeList(circuit->myEdgeList, myEdge->info->name) + 1;
+                        matrix[rowno][a] = 1;
+						matrix[rowno][a] = myEdge->i_imag; // added complex here
+                        rowno++;
+                    }
+				}
+				else // V
+				{
+                    if(myEdge->info->val!=w)
+                    {
+                        a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v2->netName);
+                        matrix[rowno][a] = 1;
+                        a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v1->netName);
+                        matrix[rowno][a] = -1;
+                        rowno++;
+                        a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v2->netName) + 1;
+                        matrix[rowno][a] = 1;
+                        a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v1->netName) + 1;
+                        matrix[rowno][a] = -1;
+                    }
+                    else
+					{
+						myEdge->i_imag = myEdge->info->amplitude * sinf(myEdge->info->delay);
+						myEdge->i_real = myEdge->info->amplitude * cosf(myEdge->info->delay);
+
+                        a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v2->netName);
+                        matrix[rowno][a] = 1;
+                        a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v1->netName);
+                        matrix[rowno][a] = -1;
+                        a = 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
+                        matrix[rowno][a] = -myEdge->i_real; //see if neg
+                        rowno++;
+                        a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v2->netName) + 1;
+                        matrix[rowno][a] = 1;
+                        a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v1->netName) + 1;
+                        matrix[rowno][a] = -1;
+						matrix[rowno][a] = -myEdge->i_imag; // add complex here
+                    }
 					rowno++;
 				}
 			}
 		}
+        //kcl
 		for(i=0; i<circuit->myAdjList->size - 1; i++)
 		{
 			myVertex = getInAdjList(circuit->myAdjList,i);
@@ -448,6 +479,7 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 			}
 			rowno+=2;
 		}
+        //ground
 		for(i=0; i<circuit->myAdjList->size; i++) {
 			if (strcmp(*getInAdjList(circuit->myAdjList, i)->netName, "0") == 0) {
 				break;
@@ -456,10 +488,96 @@ void assigncomplex(float w, float matrix[][2 * circuit->myAdjList->size + 2 * ci
 		matrix[rowno][i*2]=1;
 		matrix[rowno+1][i*2+1]=1;
 	}
-	else
+	else //w=0
 	{
-		//w=0
-		//set all
+        for(i=0; i<circuit->myEdgeList->size; i++)
+        {
+            myEdge=getInEdgeList(circuit->myEdgeList,i);
+
+            if(myEdge->info->isSource == 0)
+            {
+                if(myEdge->info->type == 'R')
+                {
+                    myEdge->z_imag = 0;
+                    myEdge->z_real = myEdge->info->val;
+                    a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName);
+                    matrix[rowno][a]=1;
+                    a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName);
+                    matrix[rowno][a]=-1;
+                    a= 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
+                    matrix[rowno][a]=-1*myEdge->z_real;
+                    a= 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name) + 1;
+                    matrix[rowno][a]=myEdge->z_imag;
+                    rowno++;
+                    a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName)+1;
+                    matrix[rowno][a]=1;
+                    a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName)+1;
+                    matrix[rowno][a]=-1;
+                    a= 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name) + 1;
+                    matrix[rowno][a]=-1*myEdge->z_real;
+                    a= 2 * circuit->myAdjList->size + 2*indexInEdgeList(circuit->myEdgeList,myEdge->info->name);
+                    matrix[rowno][a]=myEdge->z_imag;
+                    rowno++;
+                }
+                else if(myEdge->info->type == 'L')
+                {
+                    a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName);
+                    matrix[rowno][a]=1;
+                    a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName);
+                    matrix[rowno][a]=-1;
+                    rowno++;
+                    a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v1->netName)+1;
+                    matrix[rowno][a]=1;
+                    a= 2 * indexInAdjList(circuit->myAdjList,myEdge->v2->netName)+1;
+                    matrix[rowno][a]=-1;
+                    rowno++;
+                }
+                else if(myEdge->info->type == 'C')
+                {
+                    myEdge->i_real = 0;
+                    myEdge->i_imag = 0;
+                    a = 2 * circuit->myAdjList->size + 2 * indexInEdgeList(circuit->myEdgeList, myEdge->info->name);
+                    matrix[rowno][a] = 1;
+                    rowno++;
+                    a = 2 * circuit->myAdjList->size + 2 * indexInEdgeList(circuit->myEdgeList, myEdge->info->name) + 1;
+                    matrix[rowno][a] = 1;
+                    rowno++;
+                }
+
+            }
+            else
+            {
+                if(myEdge->info->type == 'V')
+                {
+                    a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v2->netName);
+                    matrix[rowno][a] = 1;
+                    a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v1->netName);
+                    matrix[rowno][a] = -1;
+                    a = 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
+                    matrix[rowno][a] = -myEdge->info->offSet;
+                    rowno++;
+                    a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v2->netName) + 1;
+                    matrix[rowno][a] = 1;
+                    a = 2 * indexInAdjList(circuit->myAdjList, myEdge->v1->netName) + 1;
+                    matrix[rowno][a] = -1;
+                    rowno++;
+                }
+                else // I
+                {
+                    myEdge->i_imag = 0;
+                    myEdge->i_real = myEdge->info->amplitude;
+                    a = 2 * circuit->myAdjList->size + 2 * indexInEdgeList(circuit->myEdgeList, myEdge->info->name);
+                    matrix[rowno][a] = 1;
+                    a = 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
+                    matrix[rowno][a] = myEdge->i_real; //see if neg
+                    rowno++;
+                    a = 2 * circuit->myAdjList->size + 2 * indexInEdgeList(circuit->myEdgeList, myEdge->info->name) + 1;
+                    matrix[rowno][a] = 1;
+                    rowno++;
+                }
+
+            }
+        }
 	}		
 }
 
@@ -619,6 +737,11 @@ int main(int argc, char *argv[])
 			//invert(matrix);
 		}
 	}
-	return 0;
+    //DC offset
+    assigncomplex(0,matrix);
+    printmatrix(matrix);
+    printf("----ssssss--------");
+
+    return 0;
 }
 

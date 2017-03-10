@@ -33,19 +33,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "H:\CLionIDE\CLion 2016.3\bin\cmake\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files (x86)\JetBrains\CLion 2016.3.3\bin\cmake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "H:\CLionIDE\CLion 2016.3\bin\cmake\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files (x86)\JetBrains\CLion 2016.3.3\bin\cmake\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "H:\stdy\IIT Sem 4\COP290\ACCircuit"
+CMAKE_SOURCE_DIR = X:\clion_projects\ACCircuit_Mine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug"
+CMAKE_BINARY_DIR = X:\clion_projects\ACCircuit_Mine\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ACCircuit.dir/depend.make
@@ -58,16 +58,16 @@ include CMakeFiles/ACCircuit.dir/flags.make
 
 CMakeFiles/ACCircuit.dir/multigraph.c.obj: CMakeFiles/ACCircuit.dir/flags.make
 CMakeFiles/ACCircuit.dir/multigraph.c.obj: ../multigraph.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ACCircuit.dir/multigraph.c.obj"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\multigraph.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\multigraph.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/ACCircuit.dir/multigraph.c.obj"
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\multigraph.c.obj   -c X:\clion_projects\ACCircuit_Mine\multigraph.c
 
 CMakeFiles/ACCircuit.dir/multigraph.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/multigraph.c.i"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\multigraph.c" > CMakeFiles\ACCircuit.dir\multigraph.c.i
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E X:\clion_projects\ACCircuit_Mine\multigraph.c > CMakeFiles\ACCircuit.dir\multigraph.c.i
 
 CMakeFiles/ACCircuit.dir/multigraph.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/multigraph.c.s"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\multigraph.c" -o CMakeFiles\ACCircuit.dir\multigraph.c.s
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S X:\clion_projects\ACCircuit_Mine\multigraph.c -o CMakeFiles\ACCircuit.dir\multigraph.c.s
 
 CMakeFiles/ACCircuit.dir/multigraph.c.obj.requires:
 
@@ -82,16 +82,16 @@ CMakeFiles/ACCircuit.dir/multigraph.c.obj.provides.build: CMakeFiles/ACCircuit.d
 
 CMakeFiles/ACCircuit.dir/parser.tab.c.obj: CMakeFiles/ACCircuit.dir/flags.make
 CMakeFiles/ACCircuit.dir/parser.tab.c.obj: ../parser.tab.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ACCircuit.dir/parser.tab.c.obj"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\parser.tab.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\parser.tab.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/ACCircuit.dir/parser.tab.c.obj"
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\parser.tab.c.obj   -c X:\clion_projects\ACCircuit_Mine\parser.tab.c
 
 CMakeFiles/ACCircuit.dir/parser.tab.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/parser.tab.c.i"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\parser.tab.c" > CMakeFiles\ACCircuit.dir\parser.tab.c.i
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E X:\clion_projects\ACCircuit_Mine\parser.tab.c > CMakeFiles\ACCircuit.dir\parser.tab.c.i
 
 CMakeFiles/ACCircuit.dir/parser.tab.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/parser.tab.c.s"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\parser.tab.c" -o CMakeFiles\ACCircuit.dir\parser.tab.c.s
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S X:\clion_projects\ACCircuit_Mine\parser.tab.c -o CMakeFiles\ACCircuit.dir\parser.tab.c.s
 
 CMakeFiles/ACCircuit.dir/parser.tab.c.obj.requires:
 
@@ -106,16 +106,16 @@ CMakeFiles/ACCircuit.dir/parser.tab.c.obj.provides.build: CMakeFiles/ACCircuit.d
 
 CMakeFiles/ACCircuit.dir/lex.yy.c.obj: CMakeFiles/ACCircuit.dir/flags.make
 CMakeFiles/ACCircuit.dir/lex.yy.c.obj: ../lex.yy.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ACCircuit.dir/lex.yy.c.obj"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\lex.yy.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\lex.yy.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/ACCircuit.dir/lex.yy.c.obj"
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\lex.yy.c.obj   -c X:\clion_projects\ACCircuit_Mine\lex.yy.c
 
 CMakeFiles/ACCircuit.dir/lex.yy.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/lex.yy.c.i"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\lex.yy.c" > CMakeFiles\ACCircuit.dir\lex.yy.c.i
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E X:\clion_projects\ACCircuit_Mine\lex.yy.c > CMakeFiles\ACCircuit.dir\lex.yy.c.i
 
 CMakeFiles/ACCircuit.dir/lex.yy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/lex.yy.c.s"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\lex.yy.c" -o CMakeFiles\ACCircuit.dir\lex.yy.c.s
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S X:\clion_projects\ACCircuit_Mine\lex.yy.c -o CMakeFiles\ACCircuit.dir\lex.yy.c.s
 
 CMakeFiles/ACCircuit.dir/lex.yy.c.obj.requires:
 
@@ -130,16 +130,16 @@ CMakeFiles/ACCircuit.dir/lex.yy.c.obj.provides.build: CMakeFiles/ACCircuit.dir/l
 
 CMakeFiles/ACCircuit.dir/main.c.obj: CMakeFiles/ACCircuit.dir/flags.make
 CMakeFiles/ACCircuit.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ACCircuit.dir/main.c.obj"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\main.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\main.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/ACCircuit.dir/main.c.obj"
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\main.c.obj   -c X:\clion_projects\ACCircuit_Mine\main.c
 
 CMakeFiles/ACCircuit.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/main.c.i"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\main.c" > CMakeFiles\ACCircuit.dir\main.c.i
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E X:\clion_projects\ACCircuit_Mine\main.c > CMakeFiles\ACCircuit.dir\main.c.i
 
 CMakeFiles/ACCircuit.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/main.c.s"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\main.c" -o CMakeFiles\ACCircuit.dir\main.c.s
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S X:\clion_projects\ACCircuit_Mine\main.c -o CMakeFiles\ACCircuit.dir\main.c.s
 
 CMakeFiles/ACCircuit.dir/main.c.obj.requires:
 
@@ -154,16 +154,16 @@ CMakeFiles/ACCircuit.dir/main.c.obj.provides.build: CMakeFiles/ACCircuit.dir/mai
 
 CMakeFiles/ACCircuit.dir/eqsolve.c.obj: CMakeFiles/ACCircuit.dir/flags.make
 CMakeFiles/ACCircuit.dir/eqsolve.c.obj: ../eqsolve.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ACCircuit.dir/eqsolve.c.obj"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\eqsolve.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\eqsolve.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/ACCircuit.dir/eqsolve.c.obj"
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\eqsolve.c.obj   -c X:\clion_projects\ACCircuit_Mine\eqsolve.c
 
 CMakeFiles/ACCircuit.dir/eqsolve.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/eqsolve.c.i"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\eqsolve.c" > CMakeFiles\ACCircuit.dir\eqsolve.c.i
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E X:\clion_projects\ACCircuit_Mine\eqsolve.c > CMakeFiles\ACCircuit.dir\eqsolve.c.i
 
 CMakeFiles/ACCircuit.dir/eqsolve.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/eqsolve.c.s"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\eqsolve.c" -o CMakeFiles\ACCircuit.dir\eqsolve.c.s
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S X:\clion_projects\ACCircuit_Mine\eqsolve.c -o CMakeFiles\ACCircuit.dir\eqsolve.c.s
 
 CMakeFiles/ACCircuit.dir/eqsolve.c.obj.requires:
 
@@ -178,16 +178,16 @@ CMakeFiles/ACCircuit.dir/eqsolve.c.obj.provides.build: CMakeFiles/ACCircuit.dir/
 
 CMakeFiles/ACCircuit.dir/gj.c.obj: CMakeFiles/ACCircuit.dir/flags.make
 CMakeFiles/ACCircuit.dir/gj.c.obj: ../gj.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ACCircuit.dir/gj.c.obj"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\gj.c.obj   -c "H:\stdy\IIT Sem 4\COP290\ACCircuit\gj.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/ACCircuit.dir/gj.c.obj"
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\ACCircuit.dir\gj.c.obj   -c X:\clion_projects\ACCircuit_Mine\gj.c
 
 CMakeFiles/ACCircuit.dir/gj.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/ACCircuit.dir/gj.c.i"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "H:\stdy\IIT Sem 4\COP290\ACCircuit\gj.c" > CMakeFiles\ACCircuit.dir\gj.c.i
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E X:\clion_projects\ACCircuit_Mine\gj.c > CMakeFiles\ACCircuit.dir\gj.c.i
 
 CMakeFiles/ACCircuit.dir/gj.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/ACCircuit.dir/gj.c.s"
-	H:\mingw\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "H:\stdy\IIT Sem 4\COP290\ACCircuit\gj.c" -o CMakeFiles\ACCircuit.dir\gj.c.s
+	C:\MinGW\bin\gcc.exe  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S X:\clion_projects\ACCircuit_Mine\gj.c -o CMakeFiles\ACCircuit.dir\gj.c.s
 
 CMakeFiles/ACCircuit.dir/gj.c.obj.requires:
 
@@ -222,7 +222,7 @@ ACCircuit.exe: CMakeFiles/ACCircuit.dir/build.make
 ACCircuit.exe: CMakeFiles/ACCircuit.dir/linklibs.rsp
 ACCircuit.exe: CMakeFiles/ACCircuit.dir/objects1.rsp
 ACCircuit.exe: CMakeFiles/ACCircuit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable ACCircuit.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable ACCircuit.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ACCircuit.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -244,6 +244,6 @@ CMakeFiles/ACCircuit.dir/clean:
 .PHONY : CMakeFiles/ACCircuit.dir/clean
 
 CMakeFiles/ACCircuit.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "H:\stdy\IIT Sem 4\COP290\ACCircuit" "H:\stdy\IIT Sem 4\COP290\ACCircuit" "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug" "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug" "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles\ACCircuit.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" X:\clion_projects\ACCircuit_Mine X:\clion_projects\ACCircuit_Mine X:\clion_projects\ACCircuit_Mine\cmake-build-debug X:\clion_projects\ACCircuit_Mine\cmake-build-debug X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles\ACCircuit.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ACCircuit.dir/depend
 

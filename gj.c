@@ -49,8 +49,8 @@ int N;
 void swap_row(float mat[N][N+1], int i, int j)
 {
     //printf("Swapped rows %d and %d\n", i, j);
-
-    for (int k=0; k<=N; k++)
+int k;
+    for (k=0; k<=N; k++)
     {
         float temp = mat[i][k];
         mat[i][k] = mat[j][k];
@@ -61,8 +61,9 @@ void swap_row(float mat[N][N+1], int i, int j)
 // function to print matrix content at any stage
 void print(float mat[N][N+1])
 {
-    for (int i=0; i<N; i++, printf("\n"))
-        for (int j=0; j<=N; j++)
+    int i,j;
+    for ( i=0; i<N; i++, printf("\n"))
+        for ( j=0; j<=N; j++)
             printf("%lf ", mat[i][j]);
 
     printf("\n--------------------------------------------------------------------\n");
@@ -70,15 +71,15 @@ void print(float mat[N][N+1])
 
 // function to reduce matrix to r.e.f.
 int forwardElim(float mat[N][N+1])
-{
-    for (int k=0; k<N; k++)
+{int k;
+    for (k=0; k<N; k++)
     {
         // Initialize maximum value and index for pivot
         int i_max = k;
         float v_max = fabs(mat[i_max][k]);
-
+        int i;
         /* find greater amplitude for pivot if any */
-        for (int i = k+1; i < N; i++)
+        for (i = k+1; i < N; i++)
             if (fabs(mat[i][k]) > v_max)
                 v_max = fabs(mat[i][k]), i_max = i;
 
@@ -95,15 +96,15 @@ int forwardElim(float mat[N][N+1])
             swap_row(mat, k, i_max);
 
 
-        for (int i=k+1; i<N; i++)
+        for (i=k+1; i<N; i++)
         {
             /* factor f to set current row kth elemnt to 0,
              * and subsequently remaining kth column to 0 */
             float f = mat[i][k]/mat[k][k];
-
+int j;
             /* subtract fth multiple of corresponding kth
                row element*/
-            for (int j=k+1; j<=N; j++)
+            for (j=k+1; j<=N; j++)
                 mat[i][j] -= mat[k][j]*f;
 
             /* filling lower triangular matrix with zeros*/
@@ -124,16 +125,17 @@ void backSub(float mat[N][N+1])
 {
     float x[N];  // An array to store solution
 
+    int i;
     /* Start calculating from last equation up to the
        first */
-    for (int i = N-1; i >= 0; i--)
+    for (i = N-1; i >= 0; i--)
     {
         /* start with the RHS of the equation */
         x[i] = mat[i][N];
-
+        int j;
         /* Initialize j to i+1 since matrix is upper
            triangular*/
-        for (int j=i+1; j<N; j++)
+        for (j=i+1; j<N; j++)
         {
             /* subtract all the lhs values
              * except the coefficient of the variable
@@ -147,7 +149,7 @@ void backSub(float mat[N][N+1])
     }
 
     printf("\nSolution for the system:\n");
-    for (int i=0; i<N; i++)
+    for (i=0; i<N; i++)
         printf("%lf\n", x[i]);
 }
 

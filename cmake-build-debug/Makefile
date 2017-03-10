@@ -38,19 +38,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "H:\CLionIDE\CLion 2016.3\bin\cmake\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files (x86)\JetBrains\CLion 2016.3.3\bin\cmake\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "H:\CLionIDE\CLion 2016.3\bin\cmake\bin\cmake.exe" -E remove -f
+RM = "C:\Program Files (x86)\JetBrains\CLion 2016.3.3\bin\cmake\bin\cmake.exe" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "H:\stdy\IIT Sem 4\COP290\ACCircuit"
+CMAKE_SOURCE_DIR = X:\clion_projects\ACCircuit_Mine
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug"
+CMAKE_BINARY_DIR = X:\clion_projects\ACCircuit_Mine\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -58,7 +58,7 @@ CMAKE_BINARY_DIR = "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug"
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"H:\CLionIDE\CLion 2016.3\bin\cmake\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files (x86)\JetBrains\CLion 2016.3.3\bin\cmake\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -69,7 +69,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"H:\CLionIDE\CLion 2016.3\bin\cmake\bin\cmake.exe" -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files (x86)\JetBrains\CLion 2016.3.3\bin\cmake\bin\cmake.exe" -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "H:\stdy\IIT Sem 4\COP290\ACCircuit\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start X:\clion_projects\ACCircuit_Mine\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
