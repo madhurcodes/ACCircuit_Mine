@@ -19,6 +19,8 @@ stdio.h
 -
 math.h
 -
+malloc.h
+-
 myheader.h
 H:/stdy/IIT Sem 4/COP290/ACCircuit/myheader.h
 

@@ -6,19 +6,19 @@
 // method
 #include<stdio.h>
 #include<math.h>
+#include <malloc.h>
 #include "myheader.h"
 extern graph *circuit;
-
 int N;
 // function to reduce matrix to r.e.f.  Returns a value to
 // indicate whether matrix is singular or not
                 int forwardElim(float mat[N][N+1]);
 
 // function to calculate the values of the unknowns
-                void backSub(float mat[N][N+1]);
+                float* backSub(float mat[N][N+1]);
 
 // function to get matrix content
-                void gaussianElimination(float mat[N][N+1])
+float * gaussianElimination(float mat[N][N+1])
 {
     /* reduction into r.e.f. */
     int singular_flag = forwardElim(mat);
@@ -42,7 +42,7 @@ int N;
 
     /* get solution to system and print it using
        backward substitution */
-    backSub(mat);
+    return backSub(mat);
 }
 
 // function for elemntary operation of swapping two rows
@@ -110,17 +110,17 @@ int forwardElim(float mat[N][N+1])
             mat[i][k] = 0;
         }
 
-        print(mat);        //for matrix state
-        printf("\nk done %d\n",k);
+//        print(mat);        //for matrix state
+//        printf("\nk done %d\n",k);
 
     }
     printf("\n");
-    print(mat);            //for matrix state
+  //  print(mat);            //for matrix state
     return -1;
 }
 
 // function to calculate the values of the unknowns
-void backSub(float mat[N][N+1])
+float* backSub(float mat[N][N+1])
 {
     float x[N];  // An array to store solution
 
@@ -147,22 +147,25 @@ void backSub(float mat[N][N+1])
     }
 
     printf("\nSolution for the system:\n");
-    for (int i=0; i<N; i++)
+    for (int i=0; i<N; i++) {
         printf("%lf\n", x[i]);
+        mmmm[i] = x[i];
+    }
+    return x;
 }
 
 // Driver program
-int tryin(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1])
+float* tryin(float matrix[][2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size + 1])
 {
     /* input matrix */
     N = 2 * circuit->myAdjList->size + 2 * circuit->myEdgeList->size;
+    mmmm = (float *) malloc(N*sizeof(float));
 //    float tryyy[4][5] = {{1.11, -2.22, -3.33, 2.22, 1.11},
 //                         {0, -1, -2, 3 ,-4},
 //                         {1 , 4, -9, -16 , 25},
 //                         {99, -999, 9999, -9, 1}
 //    };
 //    N = 4;
-    gaussianElimination(matrix);
+    return gaussianElimination(matrix);
 
-    return 0;
 }
